@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import APIData from './APIData'
+import { BrowserRouter } from 'react-router-dom';
+import AppRoutes from './Routes/AppRoutes';
+import NavBar1 from './Components/NavBar/NavBar1';
+import NavBar2 from './Components/NavBar/NavBar2';
+// import CreateAccount from './Pages/CreateAccount/CreateAccount';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <APIData /> */}
+      {/* <CreateAccount/> */}
+      <BrowserRouter>
+        <NavBar1 />
+        <NavBar2 />
+        <AppRoutes />
+      </BrowserRouter>
     </div>
   );
 }

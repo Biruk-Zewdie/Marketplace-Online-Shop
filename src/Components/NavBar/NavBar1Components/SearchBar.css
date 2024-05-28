@@ -1,0 +1,19 @@
+.search-form{
+    display: flex;
+}
+.search-bar{
+   
+    width: 400px;
+    height: 46px;
+
+}
+
+.search-button{
+    height: 46px;
+    width: 46px;
+}
+
+.suggestion-list{
+    list-style: none;
+    margin: 5px;
+}

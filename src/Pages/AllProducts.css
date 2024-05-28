@@ -1,0 +1,40 @@
+
+.product-card {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+.product-card-container {
+    display: flex;
+    margin: 20px 20px 0 20px;
+    width: 250px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-image {
+    width: 240px;
+    height: 300px;
+
+}
+
+.product-image:hover {
+    transform: scale(1.1); 
+}
+
+.product-price {
+    display: flex;
+    align-self: flex-start;
+    margin-top: 10px;
+    font-weight: bolder;
+
+}
+
+.product-name {
+    display: flex;
+    align-self: flex-start;
+    margin-top:10px;
+}
