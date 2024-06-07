@@ -2,6 +2,7 @@
 .product-card {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     flex-wrap: wrap;
     margin: 20px;
 }
@@ -37,4 +38,31 @@
     display: flex;
     align-self: flex-start;
     margin-top:10px;
+}
+.all-products-quantity-increment-decrement {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 30px;
+    border: 1px solid #d8d8d8;
+    border-radius: 15px;
+
+}
+
+.all-products-minus-button {
+    border: none;
+    background-color: white;
+
+}
+
+.all-products-quantity {
+    width: 40px;
+
+}
+
+.all-products-add-button {
+    border: none;
+    background-color: white;
+
 }

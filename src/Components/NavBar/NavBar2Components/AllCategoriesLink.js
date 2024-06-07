@@ -5,11 +5,19 @@ import AllCategoriesDrawer from '../../../Pages/Product/AllCategoriesDrawer';
 
 const AllCategoriesLink = () => {
     const [showDrawer, setShowDrawer] = useState(false);
-    // const classes = useStyle ()
 
     const toggleDrawer = () => {
         setShowDrawer(!showDrawer)
     }
+    // const handleDrawerOpen = () => {
+    //     setShowDrawer ('open')
+
+    // }
+
+    // const handleDrawerClose = () => {
+    //     setShowDrawer ('close')
+
+    // }
 
     return (
         <div>
@@ -19,6 +27,7 @@ const AllCategoriesLink = () => {
             <AllCategoriesDrawer
                 showDrawer={showDrawer}
                 toggleDrawer={toggleDrawer}
+            
             />
         </div>
 

@@ -1,0 +1,28 @@
+.categories-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 20px;
+
+}
+
+.category-card {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 20px 0 20px;
+}
+
+.category-image{
+    width: 240px;
+    height: 300px;
+
+}
+.category-image:hover {
+    transform: scale(1.1); 
+}
+
+.category-name {
+    margin-top: 20px;
+    
+
+}

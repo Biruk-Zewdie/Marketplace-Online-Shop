@@ -1,7 +1,8 @@
-import React, { useState} from 'react'
+import React, { useContext, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import BrandLogo from '../../Components/NavBar/NavBar1Components/BrandLogo'
+import { UserAuthenticationContext } from '../../Context/UserAuthenticationContext'
 
 const Login = () => {
     const initial_state = {
@@ -9,6 +10,8 @@ const Login = () => {
         password: ''
     }
     const [FormData, setFormData] = useState(initial_state)
+    // const [accessToken, setAccessToken] = useState (null)
+    const {accessToken, setAccessToken, getAccessToken} = useContext (UserAuthenticationContext)
     const navigate = useNavigate()
 
     const handleChange = (event) => {
@@ -20,11 +23,11 @@ const Login = () => {
         event.preventDefault()
 
         try {
-            const authenticationResponse = await axios.post('https://api.escuelajs.co/api/v1/auth/login', {
-                email: FormData.email,
-                password: FormData.password
-            })
+            await getAccessToken (FormData.email, FormData.password)
             setFormData(initial_state)
+            navigate ('/')
+          
+
 
         } catch (error) {
             console.error('Error logging in:', error.response || error.message)
@@ -32,7 +35,8 @@ const Login = () => {
             setFormData(initial_state)
         }
     }
-
+     
+  
 
     const handleCreateAccountButton = () => {
         navigate('/Create_Account')

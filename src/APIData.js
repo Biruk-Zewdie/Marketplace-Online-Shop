@@ -74,8 +74,8 @@ const Products = () => {
     return (
         // <div>
             <ul>
-                {categories.map((category, index) => <li key={index}>
-                    {category.name}
+                {allUsers.map((user, index) => <li key={index}>
+                    {user.email}
                 </li>)}
             </ul>
         // </div>

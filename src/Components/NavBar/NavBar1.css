@@ -22,16 +22,26 @@
     flex-direction: column; 
     position: absolute; 
     align-items: flex-start;
+    right: 420px;
     top: 7%;
     margin: 5px;
-    /* background-color: #fff;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2); */
-    z-index: 1;
-
+    background-color: #fff; 
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1000;
 }
-.dropdown > a {
-    margin: 3px;
+.authentication {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: 5px;
+    
+}
+.authentication > a {
+    display: flex;
+    justify-content: left;
+    margin: 5px 0;
     text-decoration: none;
+    
 } 
 
 .account-container {

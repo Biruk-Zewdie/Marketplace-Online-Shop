@@ -1,0 +1,129 @@
+.add-product-container {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 550px;
+    /* border: 1px solid black; */
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    padding: 20px;
+    margin: 10px;
+}
+.add-product-header{
+    margin: 10px;
+    font-weight: bolder;
+    font-size: 20px;
+
+}
+.add-product-form{
+    display: flex;
+    flex-direction: column;
+}
+.add-product-form>*{
+    align-items: left;
+
+}
+
+.product-name-label{
+    display: flex;
+    align-items: left;
+
+}
+.product-name-input{
+    display: flex;
+    justify-content: left;
+    width: 300px;
+    height: 30px;
+    margin: 10px 0;
+
+}
+.product-price-label{
+    display: flex;
+    align-items: left;
+
+}
+.product-price-input{
+    display: flex;
+    justify-content: left;
+    width: 300px;
+    height: 30px;
+    margin: 10px 0;
+
+}
+.product-description-label{
+    display: flex;
+    align-items: left;
+
+}
+.product-description-input{
+    display: flex;
+    justify-content: left;
+    width: 300px;
+    height: 30px;
+    margin: 10px 0;
+
+}
+.product-category-id-label{
+    display: flex;
+    align-items: left;
+
+}
+.product-category-id-input{
+    display: flex;
+    justify-content: left;
+    width: 300px;
+    height: 30px;
+    margin: 10px 0;
+
+}
+.product-image-url-input{
+    display: flex;
+    flex-direction: column;
+   
+}
+.image-input-remove{
+    display: flex;
+    flex-direction: row;
+}
+.product-image-label{
+    margin: 5px;
+}
+.image-input-remove>input{
+    display: flex;
+    margin: 0 5px;
+}
+
+.product-image-label{
+    display: flex;
+    align-items: left;
+
+}
+.product-image-input{
+    display: flex;
+    justify-content: left;
+    width: 220px;
+    height: 30px;
+    margin: 10px 0;
+
+}
+.add-input-field{
+    display: flex;
+    align-items: center;
+    margin: 5px;
+
+}
+
+.remove-input-feild {
+    display: flex;
+    height: 30px;
+}
+.add-product-submit-btn{
+    width: 300px;
+    height: 40px;
+    margin-top: 20px;
+    padding: 10px 0;
+    border-radius: 20px;
+
+}

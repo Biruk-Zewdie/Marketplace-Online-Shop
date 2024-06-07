@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import './AllCategoriesDrawer.css'
 import axios from 'axios'
 import { faXmark } from '@fortawesome/free-solid-svg-icons/faXmark';
@@ -6,20 +6,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Products from '../Products';
 import { useNavigate } from 'react-router-dom';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
+import { AllCategoriesContext } from '../../Context/AllCategoriesContext';
 
 const AllCategoriesDrawer = ({ showDrawer, toggleDrawer }) => {
-    const [allCategories, setAllCategories] = useState([])
+    const { allCategories } = useContext(AllCategoriesContext)
     const [selectedCategory, setSelectedCategory] = useState(null)
     const [productsForCategory, setProductsForCategory] = useState({})
     const navigate = useNavigate()
-
-    useEffect(() => {
-        const getAllCategories = async () => {
-            const response = await axios.get('https://api.escuelajs.co/api/v1/categories')
-            setAllCategories(response.data)
-        }
-        getAllCategories()
-    }, [])
 
     const getAllProductsForCategory = async (categoryId) => {
         const response = await axios.get(`https://api.escuelajs.co/api/v1/categories/${categoryId}/products`)
@@ -34,12 +27,16 @@ const AllCategoriesDrawer = ({ showDrawer, toggleDrawer }) => {
 
     const handleCategoryClick = (categoryId) => {
         navigate(`/${categoryId}/products`)
-        // toggleOffcanvas()
+        toggleDrawer()
         console.log(categoryId)
     }
     const handleProductClick = (productId) => {
         navigate(`/${productId}/product_details`)
-        // toggleOffcanvas()
+        toggleDrawer()
+    }
+
+    if (!showDrawer) {
+        return null
     }
 
     return (
@@ -58,7 +55,7 @@ const AllCategoriesDrawer = ({ showDrawer, toggleDrawer }) => {
                                     onMouseEnter={() => handleMouseEnter(category)}
                                     onClick={() => handleCategoryClick(category.id)}
                                 >
-                                    <span className='category-name'> {category.name} </span><span className='chevron-right'><FontAwesomeIcon icon={faChevronRight} size='0.25x' /></span>
+                                    <span className='category-name'> {category.name} </span><span className='chevron-right'><FontAwesomeIcon icon={faChevronRight} /></span>
                                 </div>
                             ))}
                         </div>
@@ -67,7 +64,7 @@ const AllCategoriesDrawer = ({ showDrawer, toggleDrawer }) => {
                                 <div >
                                     <div className='header-product-column'>
                                         {selectedCategory.name}
-                                        <FontAwesomeIcon icon={faChevronRight} size='0.5x' />
+                                        <FontAwesomeIcon icon={faChevronRight} />
                                     </div>
                                     <div className='drawer-product-card'>
                                         {productsForCategory[selectedCategory.id] && productsForCategory[selectedCategory.id].length > 0 ? (productsForCategory[selectedCategory.id].map((product) => (
@@ -76,6 +73,7 @@ const AllCategoriesDrawer = ({ showDrawer, toggleDrawer }) => {
                                                 className='product-item'
                                                 onClick={() => handleProductClick(product.id)}
                                             >
+                                                {/* {console.log(product)} */}
                                                 <div className='drawer-product-image' ><img src={product.images[0]} alt={product.title} /></div>
                                                 <div className='product-title'>{product.title}</div>
                                             </div>
@@ -91,7 +89,7 @@ const AllCategoriesDrawer = ({ showDrawer, toggleDrawer }) => {
                     </div>
                 </div>
             </div>
-            {showDrawer && <div className='drawer-overlay' onClick={toggleDrawer}></div>}
+            <div className='drawer-overlay' onClick={toggleDrawer}></div>
         </>
     )
 }

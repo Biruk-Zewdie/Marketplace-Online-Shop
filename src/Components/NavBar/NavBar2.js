@@ -1,24 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './NavBar2.css'
 import { NavLink } from 'react-router-dom'
 import AllCategoriesLink from './NavBar2Components/AllCategoriesLink'
 
 
 const NavBar2 = () => {
+    const [isActive, setIsActive] = useState(false)
+
+    const handleClick = () => {
+        setIsActive(!isActive)
+    }
 
     return (
         <nav className='navbar2'>
-            <NavLink> <AllCategoriesLink/></NavLink>
-            <NavLink to='/all_products'>All Products</NavLink>
-            <NavLink>Featured </NavLink>
-            <NavLink>New Products</NavLink>
-            <NavLink>Best Sellers</NavLink>
-            <NavLink>Electronics</NavLink>
-            <NavLink>Clothes</NavLink>
-            <NavLink>Shoes</NavLink>
-            <NavLink>Kitchen</NavLink>
-
-
+            <NavLink  className='inactive'>
+                <AllCategoriesLink />
+            </NavLink>
+            <NavLink to='/all_products' activeClassName='active' handleClick={handleClick}>
+                All Products
+            </NavLink>
+        
+            <NavLink to='/addCategory' activeClassName='active' handleClick={handleClick} >
+                Add Category
+            </NavLink>
+            <NavLink to='/addProduct' activeClassName='active' handleClick={handleClick}>
+                Add Product
+            </NavLink>
         </nav>
     )
 

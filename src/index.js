@@ -3,15 +3,26 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import CredentialProvider from './Context/CredentialProvider';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { ShoppingCartProvider } from './Context/ShoppingCartContext';
+import { AllUsersDataProvider } from './Context/AllUsersDataContext';
+import { UserAuthenticationProvider } from './Context/UserAuthenticationContext';
+import { AllCategoriesProvider } from './Context/AllCategoriesContext';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <CredentialProvider>
-      <App />
-    </CredentialProvider>
+    <UserAuthenticationProvider>
+      <AllUsersDataProvider>
+        <AllCategoriesProvider>
+
+          <ShoppingCartProvider>
+            <App />
+          </ShoppingCartProvider>
+        </AllCategoriesProvider >
+
+      </AllUsersDataProvider>
+    </UserAuthenticationProvider>
   </React.StrictMode>
 );
 

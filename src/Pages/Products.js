@@ -1,19 +1,23 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import styles from './Products.module.css'
 import axios from 'axios'
 import { useParams, useNavigate } from 'react-router-dom';
+import { AllCategoriesContext } from '../Context/AllCategoriesContext';
 
 const Products = () => {
     const [products, setProducts] = useState([])
+    const { allCategories } = useContext(AllCategoriesContext)
     const { categoryId } = useParams()
     const navigate = useNavigate()
 
-    console.log (categoryId)
+    console.log(allCategories)
     useEffect(() => {
         const getAllProductsInThisCategory = async () => {
-            const response = await axios.get(`https://api.escuelajs.co/api/v1/categories/${categoryId}/products`)
-            console.log (response.data)
-            setProducts(response.data)
+            if (categoryId) {
+                const response = await axios.get(`https://api.escuelajs.co/api/v1/categories/${categoryId}/products`)
+                console.log(response.data)
+                setProducts(response.data)
+            }
         }
         getAllProductsInThisCategory()
 
@@ -26,21 +30,26 @@ const Products = () => {
 
     console.log(products)
     return (
-        <div className = {styles['products']}>
-            {products.map((product, index) =>
-                <div className = {styles['product-card']} key={index}>
-                    <div onClick={() => handleProductCardClick(product.id)}>
-                        <img className= {styles ['product-image']}
-                            src={product.images && product.images.length > 0 ? product.images[0] : 'Images/missing product image.png'}
-                            alt={product.title}
-                        />
-                        <div className={styles['product-price']}>${product.price}</div>
-                        <div className={styles['product-name']}>{product.title}</div>
-                    </div>
+        products.length > 0 ?
+            (< div className={styles['products']} >
+                {products.map((product, index) =>
+                    <div className={styles['product-card']} key={index}>
+                        <div onClick={() => handleProductCardClick(product.id)}>
+                            <img className={styles['product-image']}
+                                src={product.images && product.images.length > 0 ? product.images[0] : '/Images/missing product image.png'}
+                                alt={product.title}
+                            />
+                            <div className={styles['product-price']}>${product.price}</div>
+                            <div className={styles['product-name']}>{product.title}</div>
+                        </div>
+                    </div >)}
+            </div>) :
+            < div className={styles['no-product']}>
+                <div>No product Found </div>
+                <img src='/Images/no-product.png' alt='No Product Found' />
+            </div >
 
-                </div>)
-            }
-        </div>
+
     )
 }
 export default Products;

@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import './NavBar1.css'
 import { NavLink } from "react-router-dom";
 import BrandLogo from "./NavBar1Components/BrandLogo";
 import SearchBar from "./NavBar1Components/SearchBar";
 import Account from "./NavBar1Components/Account";
 import CartLink from "./NavBar1Components/CartLink";
+import { UserAuthenticationContext } from "../../Context/UserAuthenticationContext";
 
 const NavBar1 = () => {
     const [dropdown, setDropdown] = useState(null)
+    const { logout, currentUserProfile } = useContext(UserAuthenticationContext)
 
     const handleMouthEnter = (menu) => {
         setDropdown(menu)
@@ -15,6 +17,9 @@ const NavBar1 = () => {
 
     const handleMouthLeave = () => {
         setDropdown(null)
+    }
+    const handleSignoutBtnClick = () => {
+        logout();
     }
 
     return (
@@ -34,8 +39,14 @@ const NavBar1 = () => {
             >
                 <Account />
                 {dropdown === 'Account' && (<div className='dropdown'>
-                    <NavLink to='/Login'>Login</NavLink>
-                    <NavLink to='/Create_Account'>Create Account</NavLink>
+                    {!currentUserProfile ?
+                        <div className='authentication'>
+                            <NavLink to='/Login'>Login</NavLink>
+                            <NavLink to='/Create_Account'>Create Account</NavLink>
+                        </div> :
+
+                        <div onClick={handleSignoutBtnClick}><NavLink to='/Login'>Sign Out</NavLink></div>
+                    }
 
                 </div>)}
             </div>

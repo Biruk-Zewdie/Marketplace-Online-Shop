@@ -1,25 +1,45 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import './ProductDetails.css'
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faMinus, faTrashCan, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ShoppingCartContext } from "../Context/ShoppingCartContext";
 
 const ProductDetails = () => {
 
     const [product, setProduct] = useState()
+    const [relatedProducts, setRelatedProducts] = useState([])
+    const { quantities, cartProducts, addToShoppingCart, handleSubtractQuantityClick, handleRemoveClick, handleAddQuantityClick } = useContext(ShoppingCartContext)
     const { productId } = useParams();
+
+
 
     useEffect(() => {
         const getProduct = async () => {
             const response = await axios.get(`https://api.escuelajs.co/api/v1/products/${productId}`)
             setProduct(response.data)
-
+            console.log(response.data.category)
         }
         getProduct();
 
-    }, [productId])
+    }, [])
 
+    if (product) {
+        console.log(product.category.id)
+
+    }
+    useEffect(() => {
+        const getAllRelatedProducts = async () => {
+            if (product && product.category && product.category.id) {
+                const response = await axios.get(`https://api.escuelajs.co/api/v1/categories/${product.category.id}/products`)
+                setRelatedProducts(response.data)
+            }
+        }
+        getAllRelatedProducts()
+    }, [product])
+
+    console.log(relatedProducts)
 
     return (
         product &&
@@ -28,16 +48,16 @@ const ProductDetails = () => {
                 <div className="image-container">
                     {product.images.map((imageUrl, index) =>
                         <div key={index} className="image" >
-                            <img src={imageUrl && imageUrl.length > 0 ? imageUrl.slice(2,-2) : 'no images found'}
+                            <img src={imageUrl && imageUrl.length > 0 ? imageUrl : 'no images found'}
                                 alt={product.title}
                             />
                         </div>)}
                 </div>
-                {console.log(product.images[0].slice(2,-2))}
+                {console.log(product.images[0])}
                 <div className='main-product-image'>
                     <img
                         className='main-product-image-img'
-                        src={product.images[0].slice(2,-2)}
+                        src={product.images[0]}
                         alt={product.title}
                     />
                 </div>
@@ -50,18 +70,53 @@ const ProductDetails = () => {
                 </div>
                 <div className='product-shopping'>
                     <div className='product-price'>${product.price}</div>
-                    <button>Quantity:1</button>
-                    <button>Add to Shopping Cart</button>
-                    <button>Add to wishList <FontAwesomeIcon icon={faHeart} /></button>
+                    <div className='details-page-quantity-btn'>
+                        <button
+                            className='details-page-minus-button'
+                            onClick={() => {
+                                if (quantities[product.id] > 1) {
+                                    handleSubtractQuantityClick(product.id)
+                                } else {
+                                    handleRemoveClick(product.id)
+                                }
+                            }} >
+                            {quantities[product.id] > 1 ?
+                                <FontAwesomeIcon icon={faMinus} /> :
+                                (cartProducts.some((p) => p.id === product.id)) &&
+                                <FontAwesomeIcon icon={faTrashCan} />
+                            }
+                        </button>
+                        {console.log(quantities[product.id])}
+                        <div className='count'>{
+                            cartProducts.some((p) => p.id === product.id) ? quantities[product.id] : 'Quantity'}</div>
+                        <button
+                            className='details-page-add-button'
+                            disabled={!(cartProducts.some((p) => p.id === product.id))}
+                            onClick={() => handleAddQuantityClick(product.id)}>
+                            <FontAwesomeIcon icon={faPlus} />
+                        </button>
+                    </div>
+                    <button
+                        className='add-to-shopping-cart-btn'
+                        onClick={() => addToShoppingCart(product)}
+                        disabled={cartProducts.some((p) => p.id === product.id)}
+                    >
+                        Add to Shopping Cart
+                    </button>
+                    <button className='add-to-wishlist-btn'>Add to wishList  <FontAwesomeIcon icon={faHeart} /></button>
 
                 </div>
             </div>
             <div className='similar-products'>
                 <h2>You May Also Would Like To Buy ...</h2>
-
-
-
-
+            </div>
+            <div className='related-products-container'>
+                {relatedProducts.map((relatedProduct, index) =>
+                    <div key={index} className='related-product-info'>
+                        <img className='related-product-image' src={relatedProduct.images[0]} alt={relatedProduct.title} />
+                        <div className="related-product-name">{relatedProduct.title}</div>
+                    </div>
+                )}
             </div>
         </div>
 

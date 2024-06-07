@@ -37,3 +37,15 @@
     margin-top:10px;
 
 }
+.no-product {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.no-product>img{
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+
+}

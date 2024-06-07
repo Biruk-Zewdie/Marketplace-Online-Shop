@@ -1,0 +1,87 @@
+.modal-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+
+}
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    min-width: 300px;
+    max-width: 600px;
+}
+.modal-close-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.modal-header {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    font-size: large;
+    padding-right:40px ;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    
+}
+.greeting{
+    display: flex;
+    flex-direction: row;
+}
+.greeting>h4{
+    margin-right: 4px;
+}
+.content > *{
+    text-align: left;
+    margin: 0;
+}
+.message>p {
+    margin: 0;
+    font-size: medium;
+}
+.details {
+    display: flex;
+    flex-direction: column;
+    border-top: #ddd;
+}
+.details>*{
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.shipping-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: smaller;
+    margin: 15px;
+    padding: 0 30px;
+    border: 1px solid #ddd;
+}
+.shipping-address {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+.shipping-address>p{
+    margin-bottom: 0;
+    text-align: left; 
+}

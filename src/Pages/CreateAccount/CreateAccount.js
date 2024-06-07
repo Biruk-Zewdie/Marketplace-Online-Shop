@@ -1,7 +1,7 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import CredentialContext from '../../Context/CredentialContext'
+import { AllUsersDataContext } from '../../Context/AllUsersDataContext'
 import BrandLogo from '../../Components/NavBar/NavBar1Components/BrandLogo'
 
 const CreateAccount = () => {
@@ -14,21 +14,37 @@ const CreateAccount = () => {
     }
 
     const [FormData, setFormData] = useState(initial_state);
-    const { allUsersEmail } = useContext(CredentialContext)
-
+    const { allUsersData, setAllUsersData } = useContext(AllUsersDataContext);
+    // const [usersEmail, setUsersEmail] = useState ([])
     const navigate = useNavigate()
+
+
 
     const handleChange = (event) => {
         const { name, value } = event.target
         setFormData(FormData => ({ ...FormData, [name]: value }))
 
     }
-    console.log(FormData)
+    // useEffect(()=> {
+    //     const getUsersEmail = () =>{
+    //         allUsersData.map ((userData) => 
+    //             setUsersEmail (usersEmail => [...usersEmail, userData.email]))
+
+    //     } 
+    //     getUsersEmail()
+
+
+    // }, [])
+   
+    
 
     const HandleFormSubmit = async (event) => {
         event.preventDefault()
 
-        if (allUsersEmail.includes(FormData.email)) {
+        const usersEmail = allUsersData.map ((userData) => userData.email) 
+        console.log (usersEmail)
+
+        if (usersEmail.includes(FormData.email)) {
             alert('You already have an account with this email address.')
             setFormData(initial_state)
             return;
@@ -44,6 +60,7 @@ const CreateAccount = () => {
             alert('account created successfully!')
 
             setFormData(initial_state)
+            navigate ('/Login')
 
         }
     }

@@ -1,0 +1,46 @@
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    bottom: 5%;
+    padding: 10px;
+    background-color: none;
+ 
+
+}
+
+.previous {
+    border: none;
+    height: 40px;
+    font-size: 15px;
+    font-weight: 700;
+
+}
+
+.page-numbers button{
+    background-color: none;
+    height: 40px;
+    width: 40px;
+    border: none;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.page-number {
+    border: none;
+    height: 30px;
+    background-color: none;
+  
+
+}
+.next {
+    border: none;
+    height: 40px;
+    font-size: 15px;
+    font-weight: 700;
+
+}
+.page-numbers button.active {
+    background:   #4b48bd;
+    color:white;
+  }

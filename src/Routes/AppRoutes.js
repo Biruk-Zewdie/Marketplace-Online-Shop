@@ -6,6 +6,12 @@ import Home from '../Pages/Home/Home';
 import Products from '../Pages/Products';
 import AllProducts from '../Pages/AllProducts';
 import ProductDetails from '../Pages/ProductDetails';
+import AddCategory from '../Pages/Seller/AddCategory';
+import AddProduct from '../Pages/Seller/AddProduct';
+import ShoppingCartDrawer from '../Pages/Cart/ShoppingCartDrawer';
+import Checkout from '../Pages/Checkout';
+import CheckEmail from '../Components/CheckEmail';
+
 
 const AppRoutes = () => {
 
@@ -13,11 +19,16 @@ const AppRoutes = () => {
         <>
         <Routes>
             <Route path='/' element={<Home/>} />
+            <Route path='/email_check'element={<CheckEmail/>}/>
             <Route path='/Login' element = {<Login/>}/>
-            <Route path = '/Create_Account' element = {<CreateAccount/>}/>
-            <Route path='/:categoryId/products' element = {<Products/>} />
+            <Route path='/Create_Account' element = {<CreateAccount/>}/>
+            <Route path='/:categoryId/products' element={<Products />} />
             <Route path='/all_products' element= {<AllProducts />}/>
             <Route path='/:productId/product_details' element ={<ProductDetails/>}/>
+            <Route path='/addCategory' element= {<AddCategory/>}/>
+            <Route path= '/addProduct' element={<AddProduct/>}/>
+            <Route path='/ShoppingCart' element={<ShoppingCartDrawer/>}/>
+            <Route path= '/checkout' element={<Checkout/>}/>
         </Routes>
         </>
     )

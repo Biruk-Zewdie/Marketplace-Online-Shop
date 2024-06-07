@@ -1,19 +1,38 @@
 .search-form{
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.search-bar{
-   
-    width: 400px;
+.input-bar{
+    width: 500px;
     height: 46px;
 
 }
 
 .search-button{
-    height: 46px;
-    width: 46px;
+    height: 50px;
+    width: 50px;
+    padding: 3px;
 }
 
 .suggestion-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     list-style: none;
+    margin: 5px;
+    z-index: 1000;
+    background-color: #fff; 
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    max-height: 300px;
+    overflow-y: scroll;
+    position: absolute;
+    top:80px;
+    width: 500px;
+    z-index: 1000;
+}
+
+.suggestion{
+    display: flex;
     margin: 5px;
 }
