@@ -35,20 +35,22 @@ const CreateAccount = () => {
 
 
     // }, [])
-   
-    
+
+
 
     const HandleFormSubmit = async (event) => {
         event.preventDefault()
 
-        const usersEmail = allUsersData.map ((userData) => userData.email) 
-        console.log (usersEmail)
+        const usersEmail = allUsersData.map((userData) => userData.email)
+        console.log(usersEmail)
 
         if (usersEmail.includes(FormData.email)) {
             alert('You already have an account with this email address.')
             setFormData(initial_state)
             return;
-        } else {
+        }
+
+        if (FormData.name !== '' && FormData.email !== '' && FormData.password !== '' && FormData.avatar !== '') {
 
             const createAccountResponse = await axios.post('https://api.escuelajs.co/api/v1/users/', {
                 name: FormData.name,
@@ -56,12 +58,12 @@ const CreateAccount = () => {
                 password: FormData.password,
                 avatar: FormData.avatar
             })
-
             alert('account created successfully!')
-
             setFormData(initial_state)
-            navigate ('/Login')
-
+            navigate('/Login')
+        } else {
+            alert('Form filled incorrectly.')
+            setFormData(initial_state)
         }
     }
 

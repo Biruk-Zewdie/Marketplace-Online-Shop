@@ -11,6 +11,8 @@ const ProductDetails = () => {
     const [product, setProduct] = useState()
     const [relatedProducts, setRelatedProducts] = useState([])
     const { quantities, cartProducts, addToShoppingCart, handleSubtractQuantityClick, handleRemoveClick, handleAddQuantityClick } = useContext(ShoppingCartContext)
+    const [selectedImageUrl, setSelectedImageUrl] = useState('')
+    const [selectedImageUrlIndex, setSelectedImageUrlIndex] = useState('')
     const { productId } = useParams();
 
 
@@ -41,23 +43,35 @@ const ProductDetails = () => {
 
     console.log(relatedProducts)
 
+    const handleImageClick = (Image, index) => {
+        setSelectedImageUrl(Image)
+        setSelectedImageUrlIndex (index)
+    }
+
+
     return (
         product &&
         <div className='container'>
             <div className='product'>
                 <div className="image-container">
                     {product.images.map((imageUrl, index) =>
-                        <div key={index} className="image" >
-                            <img src={imageUrl && imageUrl.length > 0 ? imageUrl : 'no images found'}
+                        <div key={index} className={`image ${selectedImageUrlIndex === index? 'selected' : '' } `} >
+                            <img
+                                onClick={() => handleImageClick(imageUrl,index)}
+                                onMouseEnter={() => handleImageClick(imageUrl,index)}
+                                src={imageUrl}
                                 alt={product.title}
                             />
-                        </div>)}
+                        </div>
+                    )}
+                    {console.log(product.images)}
+                    {console.log(selectedImageUrl)}
                 </div>
                 {console.log(product.images[0])}
                 <div className='main-product-image'>
                     <img
                         className='main-product-image-img'
-                        src={product.images[0]}
+                        src={selectedImageUrl ? selectedImageUrl : product.images[0]}
                         alt={product.title}
                     />
                 </div>

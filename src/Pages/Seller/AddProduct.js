@@ -9,6 +9,7 @@ const AddProduct = () => {
         price: '',
         description: '',
         categoryId: '',
+        productImage: ''
     }
 
     const [formData, setFormData] = useState(initial_State)
@@ -39,12 +40,16 @@ const AddProduct = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-
         const productData = { ...formData, images: images.filter(image => image !== '') }
+        for (const pData in productData) {
+            if (productData[pData] === '' || productData[pData].length === 0) {
+                alert('Form is not field correctly')
+                return;
+            }
+        }
         const response = await axios.post('https://api.escuelajs.co/api/v1/products/', productData)
-        console.log(response)
-
     }
+
 
     return (
         <div className='add-product-container'>
@@ -99,10 +104,22 @@ const AddProduct = () => {
                         value={formData.categoryId}
                         onChange={handleChange}
                     />
+                    <div className='product-image-label'>
+                        <label htmlFor='image'> Product image 1</label>
+                    </div>
+                    <input
+                        className='first-product-image-input'
+                        type='text'
+                        id='image'
+                        name='image'
+                        value={formData.productImage}
+                        onChange={handleChange}
+                    />
+
                     {images.map((image, index) => (
                         <div key={index} className='product-image-url-input'>
                             {/* <div className='product-image-label'> */}
-                            <label className='product-image-label' > Product image {index + 1}</label>
+                            <label className='product-image-label' > Product image {index + 2}</label>
                             {/* </div> */}
                             <div className='image-input-remove'>
                                 <input
@@ -117,7 +134,7 @@ const AddProduct = () => {
                             </div>
                         </div>
                     ))}
-                    <div className= 'add-input-field'>
+                    <div className='add-input-field'>
                         <button onClick={addUrlInputFeild}>Add more</button>
                     </div>
                     <button className='add-product-submit-btn' type='submit'>Save & Finish</button>
