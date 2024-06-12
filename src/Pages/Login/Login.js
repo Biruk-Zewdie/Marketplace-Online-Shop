@@ -44,7 +44,6 @@ const Login = () => {
 
     return (
         <> 
-        <BrandLogo/>
             <h2>Log in</h2>
             <form onSubmit={handleFormSubmit}>
                 <label htmlFor='email'>Email</label>

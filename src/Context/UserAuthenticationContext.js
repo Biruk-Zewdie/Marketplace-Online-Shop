@@ -35,7 +35,6 @@ export const UserAuthenticationProvider = ({ children }) => {
                 password
             })
             setAccessToken(response.data.access_token)
-            localStorage.setItem("token", JSON.stringify(accessToken));
             await getCurrentUserProfile(response.data.access_token)      // Fetch and set user profile after login
         } catch (error) {
             console.error('Error logging in:', error.response || error.message);
@@ -44,6 +43,16 @@ export const UserAuthenticationProvider = ({ children }) => {
     }
 
     console.log(accessToken)
+
+    useEffect(() =>{
+        localStorage.setItem('token', JSON.stringify(accessToken))
+        localStorage.setItem('Session_User_Data', JSON.stringify(currentUserProfile))
+    },[accessToken, currentUserProfile])
+
+
+    // useEffect(() => {
+    //     localStorage.setItem('Session_User_Data', JSON.stringify(currentUserProfile))
+    // },[currentUserProfile])
 
 
     const getCurrentUserProfile = async (token) => {
@@ -54,7 +63,6 @@ export const UserAuthenticationProvider = ({ children }) => {
             }
         })
         setCurrentUserProfile(response.data)
-        localStorage.setItem('Session_User_Data', JSON.stringify(currentUserProfile))
     }
 
 

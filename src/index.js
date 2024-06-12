@@ -7,6 +7,7 @@ import { ShoppingCartProvider } from './Context/ShoppingCartContext';
 import { AllUsersDataProvider } from './Context/AllUsersDataContext';
 import { UserAuthenticationProvider } from './Context/UserAuthenticationContext';
 import { AllCategoriesProvider } from './Context/AllCategoriesContext';
+import { WishListProvider } from './Context/WishListContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -17,7 +18,9 @@ root.render(
         <AllCategoriesProvider>
 
           <ShoppingCartProvider>
-            <App />
+            <WishListProvider>
+              <App />
+            </WishListProvider>
           </ShoppingCartProvider>
         </AllCategoriesProvider >
 

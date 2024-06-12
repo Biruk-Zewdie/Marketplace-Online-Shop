@@ -3,7 +3,6 @@ import './AllProductsPagination.css'
 import { AllCategoriesContext } from "../Context/AllCategoriesContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { } from "@fortawesome/free-solid-svg-icons/faChevronCircleLeft";
-import { faChevronCircleDown } from "@fortawesome/free-solid-svg-icons/faChevronCircleDown";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 const AllProductsPagination = ({ productsPerPage, handlePageChange, currentPage }) => {

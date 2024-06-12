@@ -21,7 +21,7 @@ const OrderConfirmationModal = ({ isOpen, onClose }) => {
 
     const handleCloseBtnClick = () => {
         onClose ()
-        navigate ('/checkout')
+        navigate ('/my_orders')
     }
 
     return (

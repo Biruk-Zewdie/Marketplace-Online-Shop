@@ -12,7 +12,7 @@ const BrandLogo = () => {
 
     return (
         <div className ='logo_image' onClick={HandleClick}>
-            <img src="/Images/Logo/Logo-2.png" alt="brand_logo"/>
+            <img src="/Images/Logo/Logo-1.png" alt="brand_logo"/>
         </div>
             
     )

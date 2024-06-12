@@ -1,18 +1,23 @@
 import React, { useState, useEffect, useContext } from 'react'
 import './AllProducts.css'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import axios, { all } from 'axios'
 import AllProductsPagination from '../Components/AllProductsPagination'
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faMinus, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import { ShoppingCartContext } from '../Context/ShoppingCartContext'
 import { AllCategoriesContext } from '../Context/AllCategoriesContext'
+import { WishListContext } from '../Context/WishListContext'
+
 
 const AllProducts = () => {
     const productsPerPage = 30;
     const [currentPage, setCurrentPage] = useState(1)
     const { addToShoppingCart, cartProducts, quantities, setQuantities, handleAddQuantityClick, handleSubtractQuantityClick, handleRemoveClick } = useContext(ShoppingCartContext)
     const { allProducts, setAllProducts } = useContext(AllCategoriesContext)
+    const {toggleAddToWishList, wishListAddedProducts} = useContext(WishListContext)
     const [addedProducts, setAddedProducts] = useState({})
     const navigate = useNavigate()
 
@@ -30,6 +35,8 @@ const AllProducts = () => {
         });
         setAddedProducts(initiallyAddedProducts)
     }, [cartProducts])
+
+
 
 
     const AddToShoppingCart = (productId) => {
@@ -93,57 +100,69 @@ const AllProducts = () => {
                                 : 'Images/Mproduct.png'}
                             alt={product.title}
                         />
-                        {console.log(extractUrl(product.images[0]))}
                         <div className='product-price'>${product.price}</div>
                         <div className='product-name'>{product.title}</div>
-                        <div>
-                            {!addedProducts[product.id] ?
-                                (
-                                    <button onClick={(event) => {
-                                        event.stopPropagation();
-                                        AddToShoppingCart(product.id)
-                                    }}
-                                    >
-                                        <FontAwesomeIcon icon={faPlus} />Add
-                                    </button>
-                                ) : (
-                                    <div className='all-products-quantity-increment-decrement'>
-                                        <button
-                                            className='all-products-minus-button'
-                                            onClick={(event) => {
-                                                event.stopPropagation();
+                        <div className='wishlist-shopping-cart-container'>
+                            <div className='add-to-shopping-container'>
+                                {!addedProducts[product.id] ?
+                                    (
+                                        <button onClick={(event) => {
+                                            event.stopPropagation();
+                                            AddToShoppingCart(product.id)
+                                        }}
+                                        >
+                                            <FontAwesomeIcon icon={faPlus} />Add
+                                        </button>
+                                    ) : (
+                                        <div className='all-products-quantity-increment-decrement'>
+                                            <button
+                                                className='all-products-minus-button'
+                                                onClick={(event) => {
+                                                    event.stopPropagation();
 
-                                                // quantities[product.id] > 1 ?
-                                                //     handleSubtractQuantityClick(product.id) :
-                                                //     removeFromShoppingCart(product.id)
-                                                if (quantities[product.id] > 1) {
-                                                    handleSubtractQuantityClick(product.id)
-                                                } else {
-                                                    removeFromShoppingCart(product.id)
+                                                    // quantities[product.id] > 1 ?
+                                                    //     handleSubtractQuantityClick(product.id) :
+                                                    //     removeFromShoppingCart(product.id)
+                                                    if (quantities[product.id] > 1) {
+                                                        handleSubtractQuantityClick(product.id)
+                                                    } else {
+                                                        removeFromShoppingCart(product.id)
+                                                    }
+
+                                                }}
+                                            >
+                                                {quantities[product.id] > 1 ?
+                                                    (<FontAwesomeIcon icon={faMinus} />) :
+                                                    (<FontAwesomeIcon icon={faTrashCan} />)
                                                 }
 
-                                            }}
-                                        >
-                                            {quantities[product.id] > 1 ?
-                                                (<FontAwesomeIcon icon={faMinus} />) :
-                                                (<FontAwesomeIcon icon={faTrashCan} />)
-                                            }
+                                            </button>
+                                            <div className='all-products-quantity'>{quantities[product.id]}</div>
+                                            <button
+                                                className='all-products-add-button'
+                                                onClick={(event) => {
+                                                    event.stopPropagation();
+                                                    handleAddQuantityClick(product.id)
+                                                }}
+                                            >
+                                                <FontAwesomeIcon icon={faPlus} />
+                                            </button>
+                                        </div>
+                                    )
+                                }
 
-                                        </button>
-                                        <div className='all-products-quantity'>{quantities[product.id]}</div>
-                                        <button
-                                            className='all-products-add-button'
-                                            onClick={(event) => {
-                                                event.stopPropagation();
-                                                handleAddQuantityClick(product.id)
-                                            }}
-                                        >
-                                            <FontAwesomeIcon icon={faPlus} />
-                                        </button>
-                                    </div>
-                                )
-                            }
+                            </div>
+                            <div className='WishList-container'>
+                                <button onClick={(event) => {
+                                    event.stopPropagation();
+                                    toggleAddToWishList(product.id)
+
+                                }}>
+                                    {wishListAddedProducts[product.id] ? <FavoriteIcon /> : <FavoriteBorderIcon />}
+                                </button>
+                            </div>
                         </div>
+
                     </div>)}
 
             </div>

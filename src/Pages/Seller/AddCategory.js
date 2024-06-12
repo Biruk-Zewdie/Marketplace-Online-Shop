@@ -39,7 +39,6 @@ const AddCategory = () => {
         <>
 
             <div className='add-category-container'>
-                <BrandLogo />
                 <div className='category-header'>Create product category</div>
                 <div>
                     <form onSubmit={handleSubmit} className='add-category-form'>

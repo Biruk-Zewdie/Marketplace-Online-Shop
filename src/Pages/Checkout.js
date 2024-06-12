@@ -11,13 +11,22 @@ import Login from './Login/Login'
 
 
 const Checkout = () => {
-    const { noOfitems, subtotal, cartProducts, EmptyShoppingCart } = useContext(ShoppingCartContext)
+    const { noOfitems, subtotal, cartProducts, EmptyShoppingCart, setCartProducts, AddToMyOrders } = useContext(ShoppingCartContext)
     const { currentUserProfile } = useContext(UserAuthenticationContext)
     const { usersEmail } = useContext(AllUsersDataContext)
     const [isOpen, setIsOpen] = useState(false)
+    // const [orderedProducts, setOrderedProducts] = useState([])
 
+    // const AddToMyOrders = () => {
+    //     const checkedoutProducts = cartProducts.map((products) => ({
+    //         ...products, status: 'ordered'
+    //     }))
+        
+    //     setOrderedProducts(checkedoutProducts.filter((product) => product.status === 'ordered' ))
+    // }
     const handleModalOpen = () => {
         EmptyShoppingCart()
+        AddToMyOrders()
         setIsOpen(true)
     }
 

@@ -2,9 +2,12 @@ import React, { useState, useEffect, useContext } from "react";
 import './ProductDetails.css'
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { faHeart, faMinus, faTrashCan, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faMinus, faTrashCan, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ShoppingCartContext } from "../Context/ShoppingCartContext";
+import { WishListContext } from "../Context/WishListContext";
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 const ProductDetails = () => {
 
@@ -13,6 +16,7 @@ const ProductDetails = () => {
     const { quantities, cartProducts, addToShoppingCart, handleSubtractQuantityClick, handleRemoveClick, handleAddQuantityClick } = useContext(ShoppingCartContext)
     const [selectedImageUrl, setSelectedImageUrl] = useState('')
     const [selectedImageUrlIndex, setSelectedImageUrlIndex] = useState('')
+    const { toggleAddToWishList, wishListAddedProducts } = useContext(WishListContext)
     const { productId } = useParams();
 
 
@@ -45,7 +49,7 @@ const ProductDetails = () => {
 
     const handleImageClick = (Image, index) => {
         setSelectedImageUrl(Image)
-        setSelectedImageUrlIndex (index)
+        setSelectedImageUrlIndex(index)
     }
 
 
@@ -55,10 +59,10 @@ const ProductDetails = () => {
             <div className='product'>
                 <div className="image-container">
                     {product.images.map((imageUrl, index) =>
-                        <div key={index} className={`image ${selectedImageUrlIndex === index? 'selected' : '' } `} >
+                        <div key={index} className={`image ${selectedImageUrlIndex === index ? 'selected' : ''} `} >
                             <img
-                                onClick={() => handleImageClick(imageUrl,index)}
-                                onMouseEnter={() => handleImageClick(imageUrl,index)}
+                                onClick={() => handleImageClick(imageUrl, index)}
+                                onMouseEnter={() => handleImageClick(imageUrl, index)}
                                 src={imageUrl}
                                 alt={product.title}
                             />
@@ -117,7 +121,20 @@ const ProductDetails = () => {
                     >
                         Add to Shopping Cart
                     </button>
-                    <button className='add-to-wishlist-btn'>Add to wishList  <FontAwesomeIcon icon={faHeart} /></button>
+                    <button
+                        className='add-to-wishlist-btn'
+                        onClick={() => toggleAddToWishList (product.id)}
+                    >
+                        {wishListAddedProducts[product.id] ? (
+                            <>
+                                Remove from wishlist <FavoriteIcon />
+                            </>
+                        ) : (
+                            <>
+                                Add to wishlist <FavoriteBorderIcon />
+                            </>
+                        )}
+                    </button>
 
                 </div>
             </div>

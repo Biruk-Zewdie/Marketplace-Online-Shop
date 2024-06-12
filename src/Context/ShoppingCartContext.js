@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
 export const ShoppingCartContext = React.createContext()
 
@@ -20,15 +21,24 @@ const getCartItemsQuantityFromLocalStorage = () => {
         return []
     }
 }
+const getOrderedProductsFromLocalStorage = () => {
+    let orderedItems = localStorage.getItem('orderedProducts')
+    if (orderedItems) {
+        return (orderedItems = JSON.parse(orderedItems))
+    } else {
+        return []
+    }
+}
 
 /*=============================== Shopping Cart Context ===================================*/
 
 export const ShoppingCartProvider = ({ children }) => {
 
     const [cartProducts, setCartProducts] = useState(getCartItemsFromLocalStorage())
-    const [quantities, setQuantities] = useState(getCartItemsQuantityFromLocalStorage () )
+    const [quantities, setQuantities] = useState(getCartItemsQuantityFromLocalStorage())
     const [noOfitems, setNoOfItems] = useState(0)
     const [subtotal, setSubtotal] = useState(0)
+    const [orderedProducts, setOrderedProducts] = useState(getOrderedProductsFromLocalStorage())
 
 
     /*============================== Add Goods and Empty Shopping Cart ==========================*/
@@ -44,10 +54,12 @@ export const ShoppingCartProvider = ({ children }) => {
     }
 
     /*============================== Save Cart Items in Local Storage==========================*/
+
     useEffect(() => {
         localStorage.setItem('cartItems', JSON.stringify(cartProducts))
         localStorage.setItem('cartItemsQuantity', JSON.stringify(quantities))
-    }, [cartProducts,quantities])
+        localStorage.setItem('orderedProducts', JSON.stringify(orderedProducts))
+    }, [cartProducts, quantities, orderedProducts])
 
     /*================================ Set product quantities ==============================*/
     useEffect(() => {
@@ -125,7 +137,30 @@ export const ShoppingCartProvider = ({ children }) => {
 
         const deleteProduct = cartProducts.filter((product) => product.id !== productId)
         setCartProducts(deleteProduct)
+
     }
+    /*======================================= add product form shopping Cart to my orders =========================================*/
+
+    const AddToMyOrders = () => {
+        const checkedoutProducts = cartProducts.map((products) => ({
+            ...products, status: 'ordered'
+        }))
+        const totalPrice = subtotal + (0.06 * subtotal);
+
+        const newOrder = {
+            products: checkedoutProducts, 
+            totalPrice: totalPrice, 
+            quantity: noOfitems, 
+            orderNumber: uuidv4().slice(0, 18),
+            orderDate: new Date().toISOString ()
+        }
+
+        const updatedOrders = [...orderedProducts, newOrder]
+
+        setOrderedProducts(updatedOrders)
+    }
+
+
 
     return (
         <ShoppingCartContext.Provider value=
@@ -140,7 +175,10 @@ export const ShoppingCartProvider = ({ children }) => {
                 handleRemoveClick,
                 noOfitems,
                 subtotal,
-                EmptyShoppingCart
+                EmptyShoppingCart,
+                AddToMyOrders,
+                orderedProducts,
+                setOrderedProducts
             }}
         >
             {children}

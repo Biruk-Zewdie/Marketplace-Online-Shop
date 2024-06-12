@@ -3,22 +3,27 @@
     justify-content: center;
     align-items: center;
     padding: 10px 20px;
+    background-color: #37485a;
 }
 
-.navbar2>a {
+.navbar2>div {
     margin-right: 20px;
 }
 
-a {
+.all-products-link>a, .add-category-link>a, .add-product>a {
+    color:white;
     text-decoration: none;
-}
+
+} 
 
 .navbar2 a.active {
-    border: 2px solid #4b48bd;
+    border: 2px solid white;
     padding: 8px 12px;
 
 }
 
 .navbar2 a.inactive {
-    border:2px solid white;
+    border:2px solid #37485a;
+    color: white;
+    text-decoration: none;
 }

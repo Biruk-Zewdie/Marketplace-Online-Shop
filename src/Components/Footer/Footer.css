@@ -1,0 +1,53 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    background-color: #11113d;
+    color: white;
+    height: 200px;
+    width: 100%;
+    padding: 20px;
+    /* bottom: 0; */
+}
+
+.child {
+    display: flex;
+    font-size: large;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.grand-children {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.grand-children>div{
+    margin: 5px 0;
+}
+.social-media-lsit {
+    display: flex;
+    flex-direction: column;
+}
+.social-media-icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    flex-wrap: wrap;
+    width: 150px;
+}
+.social-media-icons>div{
+    margin:10px 25px 0 0;
+}

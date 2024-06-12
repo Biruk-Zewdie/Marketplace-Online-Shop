@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext} from 'react'
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
@@ -7,7 +7,7 @@ import { ShoppingCartContext } from '../../../Context/ShoppingCartContext';
 
 
 const CartLink = () => {
-    const { cartProducts, quantities, noOfitems} = useContext(ShoppingCartContext)
+    const {noOfitems} = useContext(ShoppingCartContext)
     const navigate = useNavigate()
 
     const handleCartClick = () => {
@@ -18,7 +18,7 @@ const CartLink = () => {
     return (
         <div onClick={handleCartClick}>
             <div>
-                <FontAwesomeIcon icon={faCartShopping} size='3x' color='blue' />
+                <FontAwesomeIcon icon={faCartShopping} size='3x' color='white' />
                 <span>
                     {noOfitems}
                 </span>

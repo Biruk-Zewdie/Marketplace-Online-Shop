@@ -53,9 +53,8 @@ const AddProduct = () => {
 
     return (
         <div className='add-product-container'>
-            <BrandLogo />
             <div className='add-product-header'>Add Product</div>
-            <div>
+            <div className='add-product-form-container'>
                 <form onSubmit={handleSubmit} className='add-product-form'>
                     <div className='product-name-label'>
                         <label htmlFor='title'>Product Name</label>

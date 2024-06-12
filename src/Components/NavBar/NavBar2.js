@@ -13,19 +13,24 @@ const NavBar2 = () => {
 
     return (
         <nav className='navbar2'>
-            <NavLink  className='inactive'>
+            <NavLink className='inactive'>
                 <AllCategoriesLink />
             </NavLink>
-            <NavLink to='/all_products' activeClassName='active' handleClick={handleClick}>
-                All Products
-            </NavLink>
-        
-            <NavLink to='/addCategory' activeClassName='active' handleClick={handleClick} >
-                Add Category
-            </NavLink>
-            <NavLink to='/addProduct' activeClassName='active' handleClick={handleClick}>
-                Add Product
-            </NavLink>
+            <div className='all-products-link'>
+                <NavLink to='/all_products' activeClassName='active' handleClick={handleClick}>
+                    All Products
+                </NavLink>
+            </div>
+            <div className='add-category-link'>
+                <NavLink to='/addCategory' activeClassName='active' handleClick={handleClick} >
+                    Add Category
+                </NavLink>
+            </div>
+            <div className='add-product'>
+                <NavLink to='/addProduct' activeClassName='active' handleClick={handleClick}>
+                    Add Product
+                </NavLink>
+            </div>
         </nav>
     )
 

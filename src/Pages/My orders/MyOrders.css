@@ -1,0 +1,81 @@
+.my-orders{
+    display:flex;
+    flex-direction: column;
+    border-bottom: 1px solid #f4f4f4;
+    width: 800px;
+    margin: 0 auto;
+
+
+}
+
+.delivery-date{
+    display: flex;
+    margin-left: 10px;
+
+}
+.my-order-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.order-details-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: none;
+
+
+}
+.order{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.order-products {
+    display: flex;
+    flex-direction: row;
+    width: 420px;
+    overflow: scroll;
+}
+
+.items-image-list{
+    display: flex;
+    flex-direction: row;
+    margin: 0 10px 10px 0;
+
+}
+
+.myorder-images {
+    display: flex;
+    flex-direction: row;
+    width: 120px;
+    height: 120px;
+    margin: 5px;
+
+}
+.myorder-images>img{
+    width: 120px;
+    height: 120px;
+    margin: 5px;
+
+}
+.order-details{
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+    justify-content: left;
+    align-items: flex-start;
+
+
+}
+
+.quantity-price {
+    display: flex;
+}
+
+.my-order-number{
+    margin: 10px 0;
+
+}

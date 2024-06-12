@@ -50,7 +50,8 @@ const NavBar1 = () => {
 
                 </div>)}
             </div>
-            <NavLink to='/my_orders'>My Orders</NavLink>
+            <div className='my-orders-navlink'><NavLink to='/my_orders'>My Orders</NavLink></div>
+            <div className='my-wishlist-navlink'><NavLink to='/wish_list'>My WishList</NavLink></div>
             <CartLink />
 
         </nav>

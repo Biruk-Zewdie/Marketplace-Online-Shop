@@ -3,6 +3,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
+    background-color: #11113d;
+    color: white;
 
    
 }
@@ -22,7 +24,7 @@
     flex-direction: column; 
     position: absolute; 
     align-items: flex-start;
-    right: 420px;
+    right: 450px;
     top: 7%;
     margin: 5px;
     background-color: #fff; 
@@ -46,4 +48,19 @@
 
 .account-container {
     display: flex;
+}
+.my-orders-navlink{
+    color:white
+}
+.my-orders-navlink>a{
+    color: white;
+    text-decoration: none;
+}
+
+.my-wishlist{
+    color: white;
+}
+.my-wishlist-navlink>a {
+    color: white;
+    text-decoration: none;
 }
