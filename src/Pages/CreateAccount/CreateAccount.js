@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react'
+import './CreateAccount.css'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { AllUsersDataContext } from '../../Context/AllUsersDataContext'
@@ -75,48 +76,49 @@ const CreateAccount = () => {
 
 
     return (
-        <>
-            <BrandLogo />
+        <div className='create-account'>
             <h2>
                 Create Account
             </h2>
+
             <form onSubmit={HandleFormSubmit}>
-                <label htmlFor='name'>Name</label>
-                <input
-                    type='text'
-                    name='name'
-                    id='name'
-                    placeholder='First and last name'
-                    value={FormData.name}
-                    onChange={handleChange}
-                />
-                <label htmlFor='email'>Email</label>
-                <input
-                    type='email'
-                    name='email'
-                    id='email'
-                    value={FormData.email}
-                    onChange={handleChange}
-                />
-                <label htmlFor='password'>Password</label>
-                <input
-                    type='password'
-                    name='password'
-                    id='password'
-                    value={FormData.password}
-                    onChange={handleChange}
-                />
-                <label htmlFor='avatar'>Avatar Url</label>
-                <input
-                    type='url'
-                    name='avatar'
-                    id='avatar'
-                    value={FormData.avatar}
-                    onChange={handleChange} />
+                <div className='create-account-form'>
+                    <label htmlFor='name'>Name</label>
+                    <input
+                        type='text'
+                        name='name'
+                        id='name'
+                        placeholder='First and last name'
+                        value={FormData.name}
+                        onChange={handleChange}
+                    />
+                    <label htmlFor='email'>Email</label>
+                    <input
+                        type='email'
+                        name='email'
+                        id='email'
+                        value={FormData.email}
+                        onChange={handleChange}
+                    />
+                    <label htmlFor='password'>Password</label>
+                    <input
+                        type='password'
+                        name='password'
+                        id='password'
+                        value={FormData.password}
+                        onChange={handleChange}
+                    />
+                    <label htmlFor='avatar'>Avatar Url</label>
+                    <input
+                        type='url'
+                        name='avatar'
+                        id='avatar'
+                        value={FormData.avatar}
+                        onChange={handleChange} />
 
-                <button type='submit'>Continue</button>
+                    <button type='submit'>Continue</button>
+                </div>
             </form>
-
             <p>By creating an account, you agree to marketplace conditions of notice and privacy notice.</p>
             <h5>Already have an account?</h5>
             <button onClick={handleLoginButtonClick}>Log in</button>
@@ -127,7 +129,7 @@ const CreateAccount = () => {
             </li>)}
         </ul> */}
 
-        </>
+        </div>
 
     )
 

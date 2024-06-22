@@ -9,7 +9,7 @@ const AddProduct = () => {
         price: '',
         description: '',
         categoryId: '',
-        productImage: ''
+        image1: ''
     }
 
     const [formData, setFormData] = useState(initial_State)
@@ -48,6 +48,10 @@ const AddProduct = () => {
             }
         }
         const response = await axios.post('https://api.escuelajs.co/api/v1/products/', productData)
+        alert('Product is successfully added')
+        // setFormData(initial_State)
+        setFormData (initial_State)
+        setImages ([''])
     }
 
 
@@ -110,8 +114,8 @@ const AddProduct = () => {
                         className='first-product-image-input'
                         type='text'
                         id='image'
-                        name='image'
-                        value={formData.productImage}
+                        name='image1'
+                        value={formData.image1}
                         onChange={handleChange}
                     />
 

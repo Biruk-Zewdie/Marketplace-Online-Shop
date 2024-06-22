@@ -17,17 +17,20 @@ const AddCategory = () => {
         event.preventDefault()
 
         // const CreateCategory = async (event) => {
-        if (formData.name !== '' && formData.image !== ''){
+        if (formData.name === '' && formData.image === '') {
+            alert('Category name or image Url is not filled correctly')
+
+        } else {
             const response = await axios.post('https://api.escuelajs.co/api/v1/categories/', {
                 name: formData.name,
                 image: formData.image
             })
-            alert ('Category created successfully')
-
-        }else {
-            alert ('Category name or image Url is not filled correctly')
+            alert('Category created successfully')
         }
-      
+        setFormData (initial_state)
+        
+        // handleChange (initial_state)
+
         // console.log(response)
         // setCreateCategory (response.data)
         // setFormData (initial_state)

@@ -1,5 +1,6 @@
-import React, { useContext, useState} from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import './Login.css'
 import axios from 'axios'
 import BrandLogo from '../../Components/NavBar/NavBar1Components/BrandLogo'
 import { UserAuthenticationContext } from '../../Context/UserAuthenticationContext'
@@ -11,7 +12,7 @@ const Login = () => {
     }
     const [FormData, setFormData] = useState(initial_state)
     // const [accessToken, setAccessToken] = useState (null)
-    const {accessToken, setAccessToken, getAccessToken} = useContext (UserAuthenticationContext)
+    const { accessToken, setAccessToken, getAccessToken } = useContext(UserAuthenticationContext)
     const navigate = useNavigate()
 
     const handleChange = (event) => {
@@ -23,10 +24,10 @@ const Login = () => {
         event.preventDefault()
 
         try {
-            await getAccessToken (FormData.email, FormData.password)
+            await getAccessToken(FormData.email, FormData.password)
             setFormData(initial_state)
-            navigate ('/')
-          
+            navigate('/')
+
 
 
         } catch (error) {
@@ -35,41 +36,43 @@ const Login = () => {
             setFormData(initial_state)
         }
     }
-     
-  
+
+
 
     const handleCreateAccountButton = () => {
         navigate('/Create_Account')
     }
 
     return (
-        <> 
+        <div className='login'>
             <h2>Log in</h2>
             <form onSubmit={handleFormSubmit}>
-                <label htmlFor='email'>Email</label>
-                <input
-                    type='email'
-                    name='email'
-                    id='email'
-                    value={FormData.email}
-                    onChange={handleChange}
-                />
+                <div className='login-form'>
+                    <label htmlFor='email'>Email</label>
+                    <input
+                        type='email'
+                        name='email'
+                        id='email'
+                        value={FormData.email}
+                        onChange={handleChange}
+                    />
 
-                <label htmlFor='password'>Password</label>
-                <input
-                    type='password'
-                    name='password'
-                    id='password'
-                    value={FormData.password}
-                    onChange={handleChange}
-                />
-                <button type='submit'>Continue</button>
+                    <label htmlFor='password'>Password</label>
+                    <input
+                        type='password'
+                        name='password'
+                        id='password'
+                        value={FormData.password}
+                        onChange={handleChange}
+                    />
+                    <button type='submit'>Continue</button>
+                </div>
             </form>
             <p>By continuing, you agree to marketplace conditions of use and privacy notice</p>
             <h5>New to marketplace?</h5>
             <button onClick={handleCreateAccountButton}>Create your marketplace account</button>
 
-        </>
+        </div>
     )
 
 }
