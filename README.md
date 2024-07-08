@@ -5,7 +5,6 @@
 <img width="400" alt="Screenshot 2024-07-08 at 4 24 22 PM" src="https://github.com/Biruk-Zewdie/Marketplace-Online-Shop/assets/30411492/4246849c-a1b0-4dd5-b607-ee1d33349ab3">
 <img width="400" alt="Screenshot 2024-07-08 at 4 26 34 PM" src="https://github.com/Biruk-Zewdie/Marketplace-Online-Shop/assets/30411492/1a82e0eb-965c-47a2-b9e1-cb8dda26bb8f">
 <img width="400" alt="Screenshot 2024-07-08 at 4 27 10 PM" src="https://github.com/Biruk-Zewdie/Marketplace-Online-Shop/assets/30411492/8a782844-1f14-4d0f-b4ad-d439ad40f093">
-![Screenshot 2024-07-08 at 4 27 21 PM](https://github.com/Biruk-Zewdie/Marketplace-Online-Shop/assets/30411492/9d33103a-ffec-471a-b713-25e066a5838d)
 <img width="400" alt="Screenshot 2024-07-08 at 4 28 18 PM" src="https://github.com/Biruk-Zewdie/Marketplace-Online-Shop/assets/30411492/650e210b-17a4-49b8-86ea-679d74569d14">
 
 
