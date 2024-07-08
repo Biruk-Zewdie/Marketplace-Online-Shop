@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Marketplace-Online-Shop/static/css/main.3586cfae.css",
+    "main.js": "/Marketplace-Online-Shop/static/js/main.7d4b5b9f.js",
+    "static/js/453.56cd8fe8.chunk.js": "/Marketplace-Online-Shop/static/js/453.56cd8fe8.chunk.js",
+    "index.html": "/Marketplace-Online-Shop/index.html",
+    "main.3586cfae.css.map": "/Marketplace-Online-Shop/static/css/main.3586cfae.css.map",
+    "main.7d4b5b9f.js.map": "/Marketplace-Online-Shop/static/js/main.7d4b5b9f.js.map",
+    "453.56cd8fe8.chunk.js.map": "/Marketplace-Online-Shop/static/js/453.56cd8fe8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3586cfae.css",
+    "static/js/main.7d4b5b9f.js"
+  ]
+}
