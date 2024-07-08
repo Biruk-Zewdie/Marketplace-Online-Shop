@@ -1,0 +1,63 @@
+.check-email-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 350px;
+    margin: 20px auto 0; 
+}
+.check-email-container>div{
+    text-align: center;
+    font-size: 15px;
+    margin:3px 0;
+}
+.check-email-container>p{
+
+}
+.check-email-form{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: flex-start;
+    margin: 20px 0;
+
+}
+.check-email-label{
+    text-align: left;
+    font-weight: bold;
+}
+
+.check-email-input{
+    width:300px;
+    height:40px;
+    margin: 10px 0;
+    outline-color: #eb4a5c;
+    font-size: mediumh;
+}
+.check-email-submit-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 40px;
+    margin: 0 auto;
+    border-radius: 20px;
+    position: relative;
+    border: none;
+    background-color: white;
+}
+.check-email-submit-btn::after{
+    content: '';
+    position: absolute;
+    top: -3px;
+    bottom: -3px;
+    left: -3px;
+    right: -3px;
+    background-image: linear-gradient(to top right, #8f4be5, #fb722d );
+    z-index: -1;
+    border-radius: 25px;
+}
+.check-email-submit-btn:hover{
+    z-index: 0;
+    color: white;
+}

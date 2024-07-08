@@ -68,7 +68,13 @@ const SearchBar = () => {
             </form>
             <div className='suggestion-list'>
                 {showDropdown && suggestions.length > 0 && suggestions.map((suggestion, index) =>
-                    <li className='suggestion' key={index} onClick={() => handleSuggestionClick(suggestion)}>{suggestion.title}</li>
+                    <li
+                        className='suggestion'
+                        key={index}
+                        onClick={() => handleSuggestionClick(suggestion)}
+                    >
+                        {suggestion.title}  <FontAwesomeIcon icon = {faMagnifyingGlass}/> 
+                    </li>
                 )
                 }
             </div>

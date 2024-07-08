@@ -138,7 +138,7 @@ const AddProduct = () => {
                         </div>
                     ))}
                     <div className='add-input-field'>
-                        <button onClick={addUrlInputFeild}>Add more</button>
+                        <button className = 'add-input-field-btn' onClick={addUrlInputFeild}>Add more</button>
                     </div>
                     <button className='add-product-submit-btn' type='submit'>Save & Finish</button>
                 </form>

@@ -39,7 +39,7 @@ const Account = () => {
         <div
             className='account'
             onClick={HandleClick}
-            onMouseEnter={handleMouseEnter}
+           
         >
             {currentUserProfile &&
                 <div className='user-profile'>
@@ -47,7 +47,7 @@ const Account = () => {
                     <div className='username' >{currentUserProfile.name}</div>
                 </div>
             }
-            <div className='dropdown-trigger'>
+            <div className='dropdown-trigger'  onMouseEnter={handleMouseEnter}>
                 Account <FontAwesomeIcon icon={faCaretDown} />
                 {dropdown && (
                     <div
@@ -70,7 +70,6 @@ const Account = () => {
                 )}
             </div >
         </div>
-
     )
 }
 export default Account;

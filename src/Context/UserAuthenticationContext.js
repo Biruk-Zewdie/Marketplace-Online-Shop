@@ -26,6 +26,7 @@ export const UserAuthenticationProvider = ({ children }) => {
 
     const [accessToken, setAccessToken] = useState(getTokenFromLocalStorage())
     const [currentUserProfile, setCurrentUserProfile] = useState(getUserDataFormLocalStorage())
+    const [userProfileFetchingError, setUserProfileFetchingError] = useState (null)
     // const {usersEmail} = useContext (AllUsersDataContext)
 
     const getAccessToken = async (email, password) => {
@@ -44,10 +45,10 @@ export const UserAuthenticationProvider = ({ children }) => {
 
     console.log(accessToken)
 
-    useEffect(() =>{
+    useEffect(() => {
         localStorage.setItem('token', JSON.stringify(accessToken))
         localStorage.setItem('Session_User_Data', JSON.stringify(currentUserProfile))
-    },[accessToken, currentUserProfile])
+    }, [accessToken, currentUserProfile])
 
 
     // useEffect(() => {
@@ -56,13 +57,19 @@ export const UserAuthenticationProvider = ({ children }) => {
 
 
     const getCurrentUserProfile = async (token) => {
+        try {
+            const response = await axios.get(`https://api.escuelajs.co/api/v1/auth/profile`, {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+            setCurrentUserProfile(response.data)
+        } catch (error) {
+            setUserProfileFetchingError(error.message)
+            console.error('Error fetching Users Profile:', error)
 
-        const response = await axios.get(`https://api.escuelajs.co/api/v1/auth/profile`, {
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        })
-        setCurrentUserProfile(response.data)
+        }
+
     }
 
 

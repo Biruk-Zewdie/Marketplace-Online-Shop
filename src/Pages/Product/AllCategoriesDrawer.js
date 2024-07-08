@@ -7,16 +7,24 @@ import Products from '../Products';
 import { useNavigate } from 'react-router-dom';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
 import { AllCategoriesContext } from '../../Context/AllCategoriesContext';
+import { DrawerContext } from '../../Context/DrawerContext';
 
-const AllCategoriesDrawer = ({ showDrawer, toggleDrawer }) => {
+const AllCategoriesDrawer = () => {
     const { allCategories } = useContext(AllCategoriesContext)
+    const { toggleDrawer, isDrawerOpen } = useContext(DrawerContext)
     const [selectedCategory, setSelectedCategory] = useState(null)
     const [productsForCategory, setProductsForCategory] = useState({})
     const navigate = useNavigate()
 
     const getAllProductsForCategory = async (categoryId) => {
-        const response = await axios.get(`https://api.escuelajs.co/api/v1/categories/${categoryId}/products`)
-        setProductsForCategory((productsForCategory) => ({ ...productsForCategory, [categoryId]: response.data }))
+        try {
+            const response = await axios.get(`https://api.escuelajs.co/api/v1/categories/${categoryId}/products`)
+            setProductsForCategory((productsForCategory) => ({ ...productsForCategory, [categoryId]: response.data }))
+        } catch (error) {
+            console.error('Error fetching products under the category:', error)
+
+        }
+
 
     }
     const handleMouseEnter = async (category) => {
@@ -28,20 +36,20 @@ const AllCategoriesDrawer = ({ showDrawer, toggleDrawer }) => {
     const handleCategoryClick = (categoryId) => {
         navigate(`/${categoryId}/products`)
         toggleDrawer()
-        console.log(categoryId)
-    }
-    const handleProductClick = (productId) => {
-        navigate(`/${productId}/product_details`)
-        toggleDrawer()
     }
 
-    if (!showDrawer) {
+    const handleProductClick = (productId) => {
+        toggleDrawer()
+        navigate(`/${productId}/product_details`)
+    }
+
+    if (!isDrawerOpen) {
         return null
     }
 
     return (
         <>
-            <div className={`drawer ${showDrawer ? 'open' : ''}`}>
+            <div className={`drawer ${isDrawerOpen ? 'open' : ''}`}>
                 <div className='drawer-content'>
                     <button className='close-button' onClick={toggleDrawer}>
                         <FontAwesomeIcon icon={faXmark} />
@@ -55,7 +63,7 @@ const AllCategoriesDrawer = ({ showDrawer, toggleDrawer }) => {
                                     onMouseEnter={() => handleMouseEnter(category)}
                                     onClick={() => handleCategoryClick(category.id)}
                                 >
-                                    <span className='category-name'> {category.name} </span><span className='chevron-right'><FontAwesomeIcon icon={faChevronRight} /></span>
+                                    <div className='category-name'> {category.name} </div><div className='chevron-right'><FontAwesomeIcon icon={faChevronRight} /></div>
                                 </div>
                             ))}
                         </div>
@@ -73,7 +81,6 @@ const AllCategoriesDrawer = ({ showDrawer, toggleDrawer }) => {
                                                 className='product-item'
                                                 onClick={() => handleProductClick(product.id)}
                                             >
-                                                {/* {console.log(product)} */}
                                                 <div className='drawer-product-image' ><img src={product.images[0]} alt={product.title} /></div>
                                                 <div className='product-title'>{product.title}</div>
                                             </div>

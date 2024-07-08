@@ -116,12 +116,12 @@ const CreateAccount = () => {
                         value={FormData.avatar}
                         onChange={handleChange} />
 
-                    <button type='submit'>Continue</button>
+                    <button className='create-account-form-submit-btn' type='submit'>Continue</button>
                 </div>
             </form>
             <p>By creating an account, you agree to marketplace conditions of notice and privacy notice.</p>
             <h5>Already have an account?</h5>
-            <button onClick={handleLoginButtonClick}>Log in</button>
+            <button className='to-login-page-btn' onClick={handleLoginButtonClick}>Log in</button>
 
             {/* <ul>
             {allUsersEmail.map((Email, index) => <li key={index}>

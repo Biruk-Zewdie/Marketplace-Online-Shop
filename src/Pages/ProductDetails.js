@@ -16,6 +16,7 @@ const ProductDetails = () => {
     const { quantities, cartProducts, addToShoppingCart, handleSubtractQuantityClick, handleRemoveClick, handleAddQuantityClick } = useContext(ShoppingCartContext)
     const [selectedImageUrl, setSelectedImageUrl] = useState('')
     const [selectedImageUrlIndex, setSelectedImageUrlIndex] = useState('')
+    const [productFetchError, setProductFetchError] = useState(null)
     const { toggleAddToWishList, wishListAddedProducts } = useContext(WishListContext)
     const { productId } = useParams();
 
@@ -23,23 +24,33 @@ const ProductDetails = () => {
 
     useEffect(() => {
         const getProduct = async () => {
-            const response = await axios.get(`https://api.escuelajs.co/api/v1/products/${productId}`)
-            setProduct(response.data)
-            console.log(response.data.category)
+            try {
+                const response = await axios.get(`https://api.escuelajs.co/api/v1/products/${productId}`)
+                setProduct(response.data)
+                console.log(response.data.category)
+            } catch (error) {
+                setProductFetchError(error.message)
+                console.error('Error fetching product:', error)
+            }
         }
         getProduct();
 
-    }, [])
+    }, [productId])
 
-    if (product) {
-        console.log(product.category.id)
+    // if (product) {
+    //     console.log(product.category.id)
 
-    }
+    // }
     useEffect(() => {
         const getAllRelatedProducts = async () => {
-            if (product && product.category && product.category.id) {
-                const response = await axios.get(`https://api.escuelajs.co/api/v1/categories/${product.category.id}/products`)
-                setRelatedProducts(response.data)
+            try {
+                if (product && product.category && product.category.id) {
+                    const response = await axios.get(`https://api.escuelajs.co/api/v1/categories/${product.category.id}/products`)
+                    setRelatedProducts(response.data)
+                }
+            } catch (error) {
+                setProductFetchError(error.message)
+                console.error('error fetching related products:', error)
             }
         }
         getAllRelatedProducts()
@@ -68,8 +79,6 @@ const ProductDetails = () => {
                             />
                         </div>
                     )}
-                    {console.log(product.images)}
-                    {console.log(selectedImageUrl)}
                 </div>
                 {console.log(product.images[0])}
                 <div className='main-product-image'>
@@ -123,7 +132,7 @@ const ProductDetails = () => {
                     </button>
                     <button
                         className='add-to-wishlist-btn'
-                        onClick={() => toggleAddToWishList (product.id)}
+                        onClick={() => toggleAddToWishList(product.id)}
                     >
                         {wishListAddedProducts[product.id] ? (
                             <>

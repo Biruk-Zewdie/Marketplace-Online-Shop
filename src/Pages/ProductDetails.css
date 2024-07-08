@@ -100,7 +100,7 @@
     margin: 10px;
     padding: 10px;
     background-color: white;
-    border: 2px solid black;
+    border: none;
 
 }
 
@@ -143,9 +143,23 @@ hr {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    position: relative;
+    border-radius: 20px;
+    height: 15px;
 }
 
+.details-page-quantity-btn::after{
+    content: '';
+    position: absolute;
+    top:-3px;
+    bottom: -3px;
+    left: -3px;
+    right: -3px;
+    background-image: linear-gradient(to top right,  #8f4be5, #fb722d  );
+    z-index: -1;
+    border-radius: 21px;
+
+}
 .details-page-minus-button {
     display: flex;
     border: none;
@@ -168,12 +182,54 @@ hr {
 
 }
 
+
 .add-to-shopping-cart-btn,
 .add-to-wishlist-btn{
+    display: flex;
     justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 20px;
+    height: 35px;
+    font-size: medium;
 }
 
+.add-to-shopping-cart-btn::after{
+    content: '';
+    position: absolute;
+    top:-3px;
+    bottom: -3px;
+    left: -3px;
+    right: -3px;
+    background-image: linear-gradient(to top right,  #8f4be5, #fb722d  );
+    z-index: -1;
+    border-radius: 21px;
+
+}
+.add-to-shopping-cart-btn:hover{
+    z-index: 0;
+    color: white;
+}
+
+.add-to-wishlist-btn::after{
+    content: '';
+    position: absolute;
+    top:-3px;
+    bottom: -3px;
+    left: -3px;
+    right: -3px;
+    background-image: linear-gradient(to top right,  #8f4be5, #fb722d  );
+    z-index: -1;
+    border-radius: 21px;
+
+}
+.add-to-wishlist-btn:hover{
+    z-index: 0;
+    color: white;
+}
+
+
 .image-container .image.selected img{
-    border: 2px solid #4b48bd;
+    border: 2px solid #eb4a5c;
     padding: 2px;
 }

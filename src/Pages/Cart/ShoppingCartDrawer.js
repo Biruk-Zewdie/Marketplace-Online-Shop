@@ -6,15 +6,6 @@ import { ShoppingCartContext } from '../../Context/ShoppingCartContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMinus, faPlus, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 
-// const getCartItemsFromLocalStorage = () => {
-//     let cartItems = localStorage.getItem('cartItems')
-//     if (cartItems) {
-//         return (cartItems = JSON.parse(cartItems))
-//     } else {
-//         return []
-//     }
-// }
-
 
 const ShoppingCartDrawer = () => {
     const [isChecked, setIsChecked] = useState(false)
@@ -42,18 +33,6 @@ const ShoppingCartDrawer = () => {
     }
 
     console.log(cartProducts)
-    // useEffect(() => {
-    //     const calculateSubtotal = () => {
-    //         const total = cartProducts.reduce((sum, product) => {
-    //             return sum + product.price * quantities[product.id]
-    //         }, 0)
-    //         setSubtotal (total)
-
-    //     }
-    //     calculateSubtotal ()
-
-
-    // }, [cartProducts, quantities])
 
     const handleCheckoutBtnClick = () => {
         if (currentUserProfile) {
@@ -62,9 +41,6 @@ const ShoppingCartDrawer = () => {
             navigate('/Login')
         }
     }
-
-
-
     return (
         cartProducts.length > 0 ?
             (<div className='shopping-cart'>
@@ -114,11 +90,16 @@ const ShoppingCartDrawer = () => {
                                     <FontAwesomeIcon icon={faPlus} />
                                 </button>
                             </div>
-                            <div className='cart-product-price'>${(product.price * quantities[product.id]).toLocaleString ()}</div>
-                            <button onClick={() => handleRemoveClick(product.id)}>Remove</button>
+                            <div className='cart-product-price'>${(product.price * quantities[product.id]).toLocaleString()}</div>
+                            <button  className='cart-product-remove-btn' onClick={() => handleRemoveClick(product.id)}>Remove</button>
                         </div>)
                     }
-                    <button onClick={handleCheckoutBtnClick}>Continue To Checkout (${subtotal.toLocaleString()})</button>
+                    <button
+                        className='cart-checkout-btn'
+                        onClick={handleCheckoutBtnClick}
+                    >
+                        Continue To Checkout (${subtotal.toLocaleString()})
+                    </button>
                 </div>
             </div>
             ) :

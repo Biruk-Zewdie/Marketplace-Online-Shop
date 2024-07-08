@@ -25,8 +25,8 @@ const WishList = () => {
                                 <div>${Item.price}</div>
                             </div>
                             <div className='add-remove-btn'>
-                                <button>Add to cart</button>
-                                <button onClick={() => removeItemFromWishList(Item.id)}>Remove from list</button>
+                                <button className='wishlist-item-to-cart'>Add to cart</button>
+                                <button className='wishlist-item-remove-btn' onClick={() => removeItemFromWishList(Item.id)}>Remove from list</button>
                             </div>
                         </div>)}
                 </div> : <div className='empty-wishlist'>

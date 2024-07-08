@@ -13,11 +13,15 @@ const Products = () => {
     console.log(allCategories)
     useEffect(() => {
         const getAllProductsInThisCategory = async () => {
-            if (categoryId) {
-                const response = await axios.get(`https://api.escuelajs.co/api/v1/categories/${categoryId}/products`)
-                console.log(response.data)
-                setProducts(response.data)
+            try {
+                if (categoryId) {
+                    const response = await axios.get(`https://api.escuelajs.co/api/v1/categories/${categoryId}/products`)
+                    setProducts(response.data)
+                }
+            } catch (error) {
+                console.error('Error fetching products under the category:', error)
             }
+            
         }
         getAllProductsInThisCategory()
 

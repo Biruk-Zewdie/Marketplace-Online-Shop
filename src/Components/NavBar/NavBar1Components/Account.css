@@ -39,17 +39,45 @@
     
 }
 .dropdown {
-    display: block;
+    display: flex;
+    justify-content: left;
+    text-align: left;
     position: absolute; 
     margin: 5px;
     background-color: #fff; 
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     z-index: 1000;
-    width: 130px;
+    width: 133px;
 }
-.authentication a,
-.signout a {
-    padding: 5px 0;
+.signout{
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+    
+  
+}
+.authentication a{
+    padding: 5px;
     text-decoration: none;
     color: #000;
+  
+
+}
+.signout>a {
+    padding: 5px;
+    text-decoration: none;
+    color: #000;
+    width: 120px;
+    display: flex;
+    justify-content: flex-start;
+    text-align: left;
+    height: 20px ;
+}
+
+.authentication>a:hover{
+    background-color: #f0f0f0;
+}
+
+.signout>a:hover{
+    background-color: #f0f0f0;
 }

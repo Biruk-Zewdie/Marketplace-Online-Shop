@@ -52,10 +52,32 @@
     display: flex;
     flex-direction: column;
 }
-.add-remove-btn>button{
+.wishlist-item-to-cart,
+.wishlist-item-remove-btn {
     margin: 5px 0;
     padding: 8px 12px;
+    border: none;
+    background-color: white;
+    position: relative;
 }
+
+.wishlist-item-to-cart::after,
+.wishlist-item-remove-btn::after {
+    content: '';
+    position: absolute;
+    top:-2px;
+    bottom: -2px;
+    left: -2px;
+    right: -2px;
+    background-image: linear-gradient(to top right, #8f4be5, #fb722d );
+    z-index: -1;
+}
+.wishlist-item-to-cart:hover,
+.wishlist-item-remove-btn:hover{
+    z-index: 0;
+    color: white;
+}
+
 .empty-wishlist{
     display: flex;
     flex-direction: column;

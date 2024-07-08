@@ -17,7 +17,7 @@ const AllProducts = () => {
     const [currentPage, setCurrentPage] = useState(1)
     const { addToShoppingCart, cartProducts, quantities, setQuantities, handleAddQuantityClick, handleSubtractQuantityClick, handleRemoveClick } = useContext(ShoppingCartContext)
     const { allProducts, setAllProducts } = useContext(AllCategoriesContext)
-    const {toggleAddToWishList, wishListAddedProducts} = useContext(WishListContext)
+    const { toggleAddToWishList, wishListAddedProducts } = useContext(WishListContext)
     const [addedProducts, setAddedProducts] = useState({})
     const navigate = useNavigate()
 
@@ -91,7 +91,6 @@ const AllProducts = () => {
                         onClick={() => goToProductDetailsPage(product.id)}
 
                     >
-                        {/* {console.log(product.images)} */}
                         <img
                             className='product-image'
 
@@ -103,68 +102,63 @@ const AllProducts = () => {
                         <div className='product-price'>${product.price}</div>
                         <div className='product-name'>{product.title}</div>
                         <div className='wishlist-shopping-cart-container'>
-                            <div className='add-to-shopping-container'>
-                                {!addedProducts[product.id] ?
-                                    (
-                                        <button onClick={(event) => {
+                            {/* <div className='add-to-shopping-container'> */}
+                            {!addedProducts[product.id] ?
+                                (
+                                    <button className='all-products-add-button'
+                                        onClick={(event) => {
                                             event.stopPropagation();
                                             AddToShoppingCart(product.id)
                                         }}
-                                        >
-                                            <FontAwesomeIcon icon={faPlus} />Add
-                                        </button>
-                                    ) : (
-                                        <div className='all-products-quantity-increment-decrement'>
-                                            <button
-                                                className='all-products-minus-button'
-                                                onClick={(event) => {
-                                                    event.stopPropagation();
-
-                                                    // quantities[product.id] > 1 ?
-                                                    //     handleSubtractQuantityClick(product.id) :
-                                                    //     removeFromShoppingCart(product.id)
-                                                    if (quantities[product.id] > 1) {
-                                                        handleSubtractQuantityClick(product.id)
-                                                    } else {
-                                                        removeFromShoppingCart(product.id)
-                                                    }
-
-                                                }}
-                                            >
-                                                {quantities[product.id] > 1 ?
-                                                    (<FontAwesomeIcon icon={faMinus} />) :
-                                                    (<FontAwesomeIcon icon={faTrashCan} />)
+                                    >
+                                        <FontAwesomeIcon icon={faPlus} />Add
+                                    </button>
+                                ) : (
+                                    <div className='all-products-quantity-increment-decrement'>
+                                        <button
+                                            className='all-products-minus-button'
+                                            onClick={(event) => {
+                                                event.stopPropagation();
+                                                if (quantities[product.id] > 1) {
+                                                    handleSubtractQuantityClick(product.id)
+                                                } else {
+                                                    removeFromShoppingCart(product.id)
                                                 }
+                                            }}
+                                        >
+                                            {quantities[product.id] > 1 ?
+                                                (<FontAwesomeIcon icon={faMinus} />) :
+                                                (<FontAwesomeIcon icon={faTrashCan} />)
+                                            }
 
-                                            </button>
-                                            <div className='all-products-quantity'>{quantities[product.id]}</div>
-                                            <button
-                                                className='all-products-add-button'
-                                                onClick={(event) => {
-                                                    event.stopPropagation();
-                                                    handleAddQuantityClick(product.id)
-                                                }}
-                                            >
-                                                <FontAwesomeIcon icon={faPlus} />
-                                            </button>
-                                        </div>
-                                    )
-                                }
-
-                            </div>
+                                        </button>
+                                        <div className='all-products-quantity'>{quantities[product.id]}</div>
+                                        <button
+                                            className='all-products-add-button-inside'
+                                            onClick={(event) => {
+                                                event.stopPropagation();
+                                                handleAddQuantityClick(product.id)
+                                            }}
+                                        >
+                                            <FontAwesomeIcon icon={faPlus} />
+                                        </button>
+                                    </div>
+                                )
+                            }
                             <div className='WishList-container'>
-                                <button onClick={(event) => {
-                                    event.stopPropagation();
-                                    toggleAddToWishList(product.id)
-
-                                }}>
+                                <button
+                                    className='heart-button'
+                                    onClick={(event) => {
+                                        event.stopPropagation();
+                                        toggleAddToWishList(product.id)
+                                    }}
+                                >
                                     {wishListAddedProducts[product.id] ? <FavoriteIcon /> : <FavoriteBorderIcon />}
                                 </button>
                             </div>
                         </div>
 
                     </div>)}
-
             </div>
             <AllProductsPagination productsPerPage={productsPerPage} handlePageChange={handlePageChange} currentPage={currentPage}>
 

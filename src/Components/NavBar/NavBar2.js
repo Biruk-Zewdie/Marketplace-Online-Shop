@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useContext} from 'react'
 import './NavBar2.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom'
-import AllCategoriesLink from './NavBar2Components/AllCategoriesLink'
+import { DrawerContext } from '../../Context/DrawerContext'
 
 
 const NavBar2 = () => {
-    const [isActive, setIsActive] = useState(false)
+    const [isActive, setIsActive] = useState(false);
+    const {toggleDrawer} = useContext(DrawerContext)
 
     const handleClick = () => {
         setIsActive(!isActive)
@@ -13,9 +16,9 @@ const NavBar2 = () => {
 
     return (
         <nav className='navbar2'>
-            <NavLink className='inactive'>
-                <AllCategoriesLink />
-            </NavLink>
+            <div className='inactive' onClick={toggleDrawer}>
+                    <FontAwesomeIcon icon={faBars} /> All Caregories
+            </div>
             <div className='all-products-link'>
                 <NavLink to='/all_products' activeClassName='active' handleClick={handleClick}>
                     All Products

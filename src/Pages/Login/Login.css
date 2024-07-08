@@ -27,12 +27,38 @@
     width: 300px;
     height: 40px;
     margin-bottom: 15px;
+    outline-color:#eb4a5c;
 }
-.login-form > button{
+.login-data-submit-btn,
+.to-create-account-btn{
     width: 300px;
     height: 40px;
     border-radius: 20px;
+    position: relative;
+    border: none;
+    background-color: white;
+    font-size: medium;
 }
+
+.login-data-submit-btn::after,
+.to-create-account-btn::after{
+    content: '';
+    position: absolute;
+    top:-3px;
+    bottom: -3px;
+    left: -3px;
+    right: -3px;
+    background-image: linear-gradient(to top right, #8f4be5, #fb722d);
+    z-index: -1;
+    border-radius: 25px;
+}
+.login-data-submit-btn:hover,
+.to-create-account-btn:hover{
+    z-index: 0;
+    color: white;
+}
+
+
 p{
     display: flex;
    text-align:left;
@@ -43,9 +69,6 @@ p{
 .login> h5{
     margin: 10px;
 }
-.login > button{
-    width: 300px;
-    height: 40px;
-    border-radius: 20px;
+.to-create-account-btn{
     margin-bottom: 30px;
 }

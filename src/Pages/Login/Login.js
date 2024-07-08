@@ -27,9 +27,7 @@ const Login = () => {
             await getAccessToken(FormData.email, FormData.password)
             setFormData(initial_state)
             navigate('/')
-
-
-
+            
         } catch (error) {
             console.error('Error logging in:', error.response || error.message)
             alert('The user email or password is incorrect.')
@@ -65,12 +63,12 @@ const Login = () => {
                         value={FormData.password}
                         onChange={handleChange}
                     />
-                    <button type='submit'>Continue</button>
+                    <button className='login-data-submit-btn' type='submit'>Continue</button>
                 </div>
             </form>
             <p>By continuing, you agree to marketplace conditions of use and privacy notice</p>
             <h5>New to marketplace?</h5>
-            <button onClick={handleCreateAccountButton}>Create your marketplace account</button>
+            <button className='to-create-account-btn' onClick={handleCreateAccountButton}>Create your marketplace account</button>
 
         </div>
     )

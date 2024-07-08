@@ -26,6 +26,9 @@
     background: transparent;
     cursor: pointer;
 }
+.modal-close-btn:hover {
+  color:  #df6765;
+}
 
 .modal-header {
     display:flex;
@@ -54,6 +57,7 @@
     margin: 0;
 }
 .message>p {
+    width: 600px;
     margin: 0;
     font-size: medium;
 }
@@ -72,16 +76,19 @@
     flex-direction: row;
     justify-content: space-between;
     font-size: smaller;
-    margin: 15px;
-    padding: 0 30px;
     border: 1px solid #ddd;
+    margin:5px 0;
 }
 .shipping-address {
     display: flex;
     flex-direction: column;
     justify-content: left;
+    width: 300px;
 }
 .shipping-address>p{
     margin-bottom: 0;
     text-align: left; 
+}
+.arriving {
+    width: 300px;
 }

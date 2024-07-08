@@ -15,15 +15,7 @@ const Checkout = () => {
     const { currentUserProfile } = useContext(UserAuthenticationContext)
     const { usersEmail } = useContext(AllUsersDataContext)
     const [isOpen, setIsOpen] = useState(false)
-    // const [orderedProducts, setOrderedProducts] = useState([])
 
-    // const AddToMyOrders = () => {
-    //     const checkedoutProducts = cartProducts.map((products) => ({
-    //         ...products, status: 'ordered'
-    //     }))
-        
-    //     setOrderedProducts(checkedoutProducts.filter((product) => product.status === 'ordered' ))
-    // }
     const handleModalOpen = () => {
         EmptyShoppingCart()
         AddToMyOrders()

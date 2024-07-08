@@ -147,4 +147,21 @@
     padding: 10px 30px;
     width: 200px;
     border-radius: 20px;
+    position: relative;
+    border:none;
+}
+.submit-order-btn::after{
+    content: '';
+    position: absolute;
+    top: -3px;
+    bottom:-3px;
+    left:-3px;
+    right: -3px;
+    background-image: linear-gradient(to top right,  #8f4be5, #fb722d );
+    z-index: -1;
+    border-radius: 25px;
+}
+.submit-order-btn:hover {
+    z-index: 0;
+    color: white;
 }
