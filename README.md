@@ -7,6 +7,8 @@
 <img width="320" alt="Screenshot 2024-07-08 at 4 27 10 PM" src="https://github.com/Biruk-Zewdie/Marketplace-Online-Shop/assets/30411492/8a782844-1f14-4d0f-b4ad-d439ad40f093">
 <img width="320" alt="Screenshot 2024-07-08 at 4 28 18 PM" src="https://github.com/Biruk-Zewdie/Marketplace-Online-Shop/assets/30411492/650e210b-17a4-49b8-86ea-679d74569d14">
 <img width="320" alt="Screenshot 2024-07-08 at 4 23 52 PM" src="https://github.com/Biruk-Zewdie/Marketplace-Online-Shop/assets/30411492/b2de77b5-5b6a-485c-94d3-c2f619d76d75">
+<img width="320" alt="Screenshot 2024-07-08 at 5 23 24 PM" src="https://github.com/Biruk-Zewdie/Marketplace-Online-Shop/assets/30411492/0f2d5078-0489-4c5e-a541-f4ca0ab5c012">
+
 
 
 # Marketplace online shopping webapp
