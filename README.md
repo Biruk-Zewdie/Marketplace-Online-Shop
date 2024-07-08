@@ -1,5 +1,5 @@
 
-<img width="1512" alt="Screenshot 2024-07-08 at 4 21 07 PM" src="https://github.com/Biruk-Zewdie/Marketplace-Online-Shop/assets/30411492/162007bd-3bf1-4baa-bef2-0f86e9a8b62c">
+<img width="400" alt="Screenshot 2024-07-08 at 4 21 07 PM" src="https://github.com/Biruk-Zewdie/Marketplace-Online-Shop/assets/30411492/162007bd-3bf1-4baa-bef2-0f86e9a8b62c">
 
 
 # Marketplace online shopping webapp
