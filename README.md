@@ -1,70 +1,59 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img width="1512" alt="Screenshot 2024-07-08 at 4 21 07 PM" src="https://github.com/Biruk-Zewdie/Marketplace-Online-Shop/assets/30411492/162007bd-3bf1-4baa-bef2-0f86e9a8b62c">
 
-## Available Scripts
 
-In the project directory, you can run:
+# Marketplace online shopping webapp
 
-### `npm start`
+Welcome to our Marketplace Online Shopping Webapp! This platform offers a seamless experience for buying and selling goods using any device from anywhere. The web app features two main functionalities: buying goods and selling goods. Here's a detailed guide to help you get started:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
+### Buying Goods
+1. Browsing and Searching Products
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* Categories: Navigate through various product categories to find what you're looking for.
+* Search: Use the search bar to find specific products.
+* All Products Page: Explore all available products using pagination.
+2. Product Details
 
-### `npm test`
+* Descriptions: View detailed descriptions of products.
+* Pricing: Check the price and view different product images.
+* Wishlist: Save products to your wishlist for future purchase.
+3. Shopping Cart
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Adding to Cart: Add desired products to your shopping cart.
+* Modifying Cart: Adjust quantities or remove items before checkout.
+* Checkout: Set a shipping address, review your order, and make a payment.
+* Order Confirmation: Receive an order confirmation and track your orders in the "My Orders" page.
+4. Order Tracking
 
-### `npm run build`
+* My Orders: View your past orders with details such as date, order number, and price.
+5. Account Management
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Sign In/Sign Up: Create an account or sign in to make purchases.
+* Wishlist: Access and manage your wishlist through the "My Wishlist" page.
+### Selling Goods
+1. Adding Products
+* Categories and Forms: Use the "Add Categories" and "Add Products" forms to list your products.
+* Form Accuracy: Ensure the form is filled out correctly to successfully add a product.
+### Getting Started
+1. Create an Account: Sign up if you're new to the marketplace.
+2. Sign In: Use your credentials to sign in.
+3. Explore: Start browsing products or list your own items for sale.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+We hope you enjoy your experience on our Marketplace Online Shopping Webapp! Happy shopping and selling!
 
-### `npm run eject`
+## API Reference 
+I have used an APi Called Platzi Fake Store API for prototyping my e-commerce webapp marketplace. Platzi Fake Store API can be used with any type of project that needs products, users, categories, authentication, and users in JSON format.
+This API includes features like:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    ✅ All CRUD Operations
+    ✅ REST API
+    ✅ GraphQL
+    ✅ Pagination
+    ✅ Auth with JWT
+    ✅ Upload Files
+    ✅ Filter products by category, title and price range
+    ✅ Create users and check to see if they already exist
+    ✅ Postman and Insomnia files
+    ✅ Product images generated by AI
