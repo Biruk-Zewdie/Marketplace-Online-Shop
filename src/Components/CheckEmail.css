@@ -11,9 +11,6 @@
     font-size: 15px;
     margin:3px 0;
 }
-.check-email-container>p{
-
-}
 .check-email-form{
     display: flex;
     flex-direction: column;
