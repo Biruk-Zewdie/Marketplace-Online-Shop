@@ -3,7 +3,7 @@ import './NavBar2.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from 'react-router-dom'
-import { DrawerContext } from '../../Context/DrawerContext'
+import { DrawerContext } from '../../../Context/DrawerContext'
 
 
 const NavBar2 = () => {

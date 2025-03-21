@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './Login.css'
 import axios from 'axios'
-import BrandLogo from '../../Components/NavBar/NavBar1Components/BrandLogo'
+import BrandLogo from '../../Components/NavBar/Navbar1/Navbar1Components/Logo/BrandLogo'
 import { UserAuthenticationContext } from '../../Context/UserAuthenticationContext'
 
 const Login = () => {

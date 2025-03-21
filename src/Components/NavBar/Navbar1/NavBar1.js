@@ -1,10 +1,10 @@
 import React from "react";
 import './NavBar1.css'
 import { NavLink } from "react-router-dom";
-import BrandLogo from "./NavBar1Components/BrandLogo";
-import SearchBar from "./NavBar1Components/SearchBar";
-import Account from "./NavBar1Components/Account";
-import CartLink from "./NavBar1Components/CartLink";
+import BrandLogo from "./Navbar1Components/Logo/BrandLogo";
+import SearchBar from "./Navbar1Components/SearchBar/SearchBar";
+import Account from "../Navbar1/Navbar1Components/AuthAndRegistration/Account";
+import CartLink from "./Navbar1Components/CartLink";
 
 
 const NavBar1 = () => {

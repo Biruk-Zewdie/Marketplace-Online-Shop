@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './AddProduct.css'
 import axios from "axios";
-import BrandLogo from "../../Components/NavBar/NavBar1Components/BrandLogo";
+import BrandLogo from "../../Components/NavBar/Navbar1/Navbar1Components/Logo/BrandLogo";
 
 const AddProduct = () => {
     const initial_State = {

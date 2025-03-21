@@ -1,0 +1,125 @@
+html,
+body {
+    width: 100%;
+    /* height: 100%; */
+    /* margin: 0; */
+}
+.navbar1{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    background-color: #11113d;
+    color: white;
+    flex-wrap: wrap;
+
+   
+}
+.brand_logo{
+    width: 50px;
+   
+}
+.search-bar {
+    display: flex; 
+    flex-direction: row;
+    align-items: center;
+    /* position: absolute;  */
+}
+
+
+.authentication > a {
+    display: flex;
+    justify-content: left;
+    margin: 5px 0;
+    text-decoration: none;
+    
+} 
+
+.account-container {
+    display: flex;
+    gap: 15px;
+}
+.my-orders-navlink{
+    color:white
+}
+.my-orders-navlink>a{
+    color: white;
+    text-decoration: none;
+}
+
+.my-wishlist{
+    color: white;
+}
+.my-wishlist-navlink>a {
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .navbar1 {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin-top: 10px;
+        justify-content: center;
+    }
+
+    .authentication {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .authentication a {
+        margin: 5px 0;
+    }
+
+    .account-container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar1 {
+        flex-direction: column;
+        /* padding: 10px; */
+    }
+
+    .brand_logo {
+        width: 40px; 
+    }
+
+    .search-bar {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .authentication {
+        width: 100%;
+        text-align: center;
+    }
+
+    .authentication a {
+        display: block; 
+        padding: 5px;
+    }
+
+    .account-container {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .my-orders-navlink, .my-wishlist-navlink {
+        text-align: center;
+        width: 100%;
+    }
+}

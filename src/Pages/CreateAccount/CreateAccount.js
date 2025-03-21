@@ -3,7 +3,7 @@ import './CreateAccount.css'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { AllUsersDataContext } from '../../Context/AllUsersDataContext'
-import BrandLogo from '../../Components/NavBar/NavBar1Components/BrandLogo'
+import BrandLogo from '../../Components/NavBar/Navbar1/Navbar1Components/Logo/BrandLogo'
 
 const CreateAccount = () => {
 

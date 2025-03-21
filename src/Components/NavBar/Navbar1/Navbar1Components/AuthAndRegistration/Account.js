@@ -3,9 +3,9 @@ import './Account.css'
 import { useNavigate, Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
-import { UserAuthenticationContext } from '../../../Context/UserAuthenticationContext'
-import Login from '../../../Pages/Login/Login'
-import CreateAccount from '../../../Pages/CreateAccount/CreateAccount'
+import { UserAuthenticationContext } from '../../../../../Context/UserAuthenticationContext'
+import Login from '../../../../../Pages/Login/Login'
+import CreateAccount from '../../../../../Pages/CreateAccount/CreateAccount'
 
 const Account = () => {
     const navigate = useNavigate()

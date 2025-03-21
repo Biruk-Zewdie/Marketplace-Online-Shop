@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './AddCategory.css'
 import axios from "axios";
-import BrandLogo from "../../Components/NavBar/NavBar1Components/BrandLogo";
+import BrandLogo from "../../Components/NavBar/Navbar1/Navbar1Components/Logo/BrandLogo";
 
 const AddCategory = () => {
     const initial_state = { name: '', image: '' }
@@ -39,8 +39,6 @@ const AddCategory = () => {
 
 
     return (
-        <>
-
             <div className='add-category-container'>
                 <div className='category-header'>Create product category</div>
                 <div>
@@ -78,7 +76,6 @@ const AddCategory = () => {
                     </form>
                 </div>
             </div>
-        </>
     )
 
 }

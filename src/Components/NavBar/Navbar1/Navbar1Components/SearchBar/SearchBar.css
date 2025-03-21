@@ -3,7 +3,8 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    width: fit-content;
+    width: 100%;
+    max-width: 600px;
     height: 46px;
     border-radius: 10px;
     padding: 2px;
@@ -30,6 +31,7 @@
 
 
 .input-bar{
+    max-width: 100%;
     width: 500px;
     height: 46px;
     z-index: 0;
@@ -48,6 +50,7 @@
     padding:10px ;
     position: relative;
     border-radius: 0 10px 10px 0;
+    cursor: pointer;
 }
 .search-button::after{
     content: '';
@@ -78,7 +81,8 @@
     overflow-y: scroll;
     position: absolute;
     top:80px;
-    width: 550px;
+    width: 100%;
+    max-width: 550px;
     z-index: 1000;
 }
 
@@ -90,4 +94,40 @@
 }
 .suggestion:hover {
     background-color: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+    .search-form {
+        max-width: 100%;
+        width: 90%;
+    }
+
+    .input-bar {
+        max-width: 100%;
+        font-size: 14px;
+    }
+
+    /* .search-button {
+        width: 45px;
+        height: 46px;
+    } */
+
+    .suggestion-list {
+        width: 85%;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-form {
+        flex-direction: row;
+        width: 95%;
+        max-width: 100%;
+    }
+
+
+    .suggestion-list {
+        width: 85%;
+        max-width: 100%;
+        top: 55px;
+    }
 }

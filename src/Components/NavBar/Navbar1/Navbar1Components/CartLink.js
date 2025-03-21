@@ -2,7 +2,7 @@ import React, { useContext} from 'react'
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { ShoppingCartContext } from '../../../Context/ShoppingCartContext';
+import { ShoppingCartContext } from '../../../../Context/ShoppingCartContext';
 
 
 

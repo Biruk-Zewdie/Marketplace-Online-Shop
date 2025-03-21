@@ -1,8 +1,8 @@
 import './App.css';
 import { BrowserRouter } from 'react-router-dom';
 import AppRoutes from './Routes/AppRoutes';
-import NavBar1 from './Components/NavBar/NavBar1';
-import NavBar2 from './Components/NavBar/NavBar2';
+import NavBar1 from './Components/NavBar/Navbar1/NavBar1';
+import NavBar2 from './Components/NavBar/Navbar2/NavBar2';
 import Footer from './Components/Footer/Footer';
 import { DrawerProvider } from './Context/DrawerContext';
 import AllCategoriesDrawer from './Pages/Product/AllCategoriesDrawer';

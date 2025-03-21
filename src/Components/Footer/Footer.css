@@ -12,10 +12,11 @@ body {
 
 .footer {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     background-color: #11113d;
     color: white;
-    height: 200px;
+    height: auto;
     width: 100%;
     padding: 20px;
     /* bottom: 0; */
@@ -46,7 +47,6 @@ body {
     flex-direction: row;
     justify-content: left;
     flex-wrap: wrap;
-    width: 150px;
 }
 .social-media-icons>div{
     margin:10px 25px 0 0;

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './OrderConfirmationModal.css'
 import React, { useContext, useState, useEffect } from 'react'
 import { UserAuthenticationContext } from '../Context/UserAuthenticationContext';
-import BrandLogo from '../Components/NavBar/NavBar1Components/BrandLogo';
+import BrandLogo from '../Components/NavBar/Navbar1/Navbar1Components/Logo/BrandLogo';
 import { useNavigate } from 'react-router-dom';
 
 const OrderConfirmationModal = ({ isOpen, onClose }) => {
